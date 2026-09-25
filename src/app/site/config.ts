@@ -8,6 +8,9 @@
    que dado ausente.
    ========================================================================== */
 
+type Contato = { email: string; whatsapp?: string };
+type Social = Partial<Record<"instagram" | "linkedin" | "facebook" | "youtube", string>>;
+
 export const SITE = {
   name: "Cygna",
   /** Domínio de produção, sem barra no fim. TODO: confirmar o domínio definitivo. */
@@ -25,14 +28,20 @@ export const SITE = {
   contact: {
     /** TODO: confirmar a caixa de e-mail oficial. */
     email: "contato@cygna.com.br",
-    /** Só dígitos, com DDI e DDD (ex.: 5511999999999). Vazio = sem botão de WhatsApp. */
-    whatsapp: "",
-  },
+    /** Só dígitos, com DDI e DDD (ex.: 5511999999999). Descomente e preencha para ligar o
+        WhatsApp no rodapé, no contato (card + envio do formulário), no schema e no llms.txt. */
+    // whatsapp: "5511999999999",
+  } as Contato,
+
+  /* Redes sociais — aparecem no rodapé, na página de contato e no schema (sameAs).
+     Para ativar uma rede, descomente a linha e coloque a URL completa do perfil.
+     TODO: instagram/linkedin estão com URL provisória — confirmar os perfis reais antes de publicar. */
   social: {
-    instagram: "",
-    linkedin: "",
-    youtube: "",
-  },
+    instagram: "https://www.instagram.com/cygna",
+    linkedin: "https://www.linkedin.com/company/cygna",
+    // facebook: "https://www.facebook.com/cygna",
+    // youtube: "https://www.youtube.com/@cygna",
+  } as Social,
 
   /* Dados jurídicos exibidos em Termos e privacidade. TODO: preencher antes de publicar. */
   legal: {

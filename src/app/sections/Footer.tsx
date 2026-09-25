@@ -1,11 +1,12 @@
-import { useRef } from "react";
-import { AtSign, Cookie, Mail, MessageCircle } from "lucide-react";
+import { useRef, type ComponentType } from "react";
+import { Cookie, Mail } from "lucide-react";
 import { Wordmark } from "../components/Logo";
 import { gsap, useGSAP, MOTION } from "../lib/gsap";
 import { handleNavClick } from "../lib/nav";
 import { openCookiePreferences } from "../lib/consent";
 import { SEGMENTOS, segmentoPath } from "../data/segmentos";
 import { SITE } from "../site/config";
+import { REDES_SOCIAIS } from "../site/social";
 
 /* Rodapé em 4 colunas (GUIA TIER): marca + contato, e três colunas de links reais.
    Os segmentos saem do mesmo array das páginas; contatos e redes, do config —
@@ -34,11 +35,12 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
   },
 ];
 
-const CHANNELS = [
-  SITE.social.instagram && { label: "Instagram", href: SITE.social.instagram, Icon: AtSign },
-  SITE.contact.whatsapp && { label: "WhatsApp", href: `https://wa.me/${SITE.contact.whatsapp}`, Icon: MessageCircle },
-  SITE.contact.email && { label: "E-mail", href: `mailto:${SITE.contact.email}`, Icon: Mail },
-].filter(Boolean) as { label: string; href: string; Icon: typeof Mail }[];
+// Redes (Instagram, LinkedIn, Facebook, YouTube, WhatsApp) saem de site/social.ts;
+// o e-mail entra por último.
+const CHANNELS: { label: string; href: string; Icon: ComponentType<{ className?: string }> }[] = [
+  ...REDES_SOCIAIS,
+  ...(SITE.contact.email ? [{ label: "E-mail", href: `mailto:${SITE.contact.email}`, Icon: Mail }] : []),
+];
 
 export default function Footer() {
   const root = useRef<HTMLElement>(null);
@@ -90,6 +92,7 @@ export default function Footer() {
                     key={label}
                     href={href}
                     aria-label={label}
+                    title={label}
                     {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 transition-colors hover:bg-white/10"
                   >

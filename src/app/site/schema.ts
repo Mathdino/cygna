@@ -32,7 +32,7 @@ const filled = (values: readonly string[]) => values.filter((v) => v.trim() !== 
 
 /* ─── Organization ────────────────────────────────────────────────────────── */
 export function schemaOrganization(): Node {
-  const sameAs = filled([SITE.social.instagram, SITE.social.linkedin, SITE.social.youtube]);
+  const sameAs = filled(Object.values(SITE.social).filter((v): v is string => Boolean(v)));
   const contactPoint = SITE.contact.email
     ? [
         {

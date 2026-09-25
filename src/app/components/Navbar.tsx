@@ -185,24 +185,41 @@ export default function Navbar({ path = "/" }: { path?: string }) {
   const close = () => setOpen(false);
 
   return (
-    <header ref={header} className="pointer-events-none fixed inset-x-0 top-0 z-40 flex justify-center px-3 pt-3 sm:px-4 sm:pt-5">
+    <header
+      ref={header}
+      className="pointer-events-none fixed inset-x-0 top-0 z-40 flex justify-center px-3 pt-3 sm:px-4 sm:pt-5"
+    >
       <nav
         aria-label="Principal"
         className="nav-pill pointer-events-auto relative w-full max-w-[1240px] rounded-full border border-tinta/10 bg-white/80 py-2 pl-2 pr-2 sm:py-2.5 lg:py-3 lg:pl-3 lg:pr-3 shadow-sm backdrop-blur-xl transition-[box-shadow,background-color] duration-300"
       >
         {/* Three parts, justify-between: logo | nav | Entrar + CTA. The two outer parts share the leftover
             space equally (flex-1), so the nav sits in the true center of the bar. */}
-        <div className="flex items-center justify-between gap-4">
-          <a href="/" onClick={handleNavClick("/", close)} className="nav-logo flex flex-1 shrink-0 items-center pl-3 text-tinta" aria-label="Cygna — início">
+        <div className="flex items-center justify-between gap-4 px-2">
+          <a
+            href="/"
+            onClick={handleNavClick("/", close)}
+            className="nav-logo flex flex-1 shrink-0 items-center pl-3 text-tinta"
+            aria-label="Cygna — início"
+          >
             <Wordmark className="text-[22px] sm:text-[24px] lg:text-[26px]" />
           </a>
 
-          <div ref={linksRow} className="relative hidden items-center lg:flex" onMouseLeave={() => moveTo(activeRef.current)}>
-            <span className="nav-ind invisible absolute inset-y-0 left-0 w-0 rounded-full bg-nevoa" aria-hidden="true" />
+          <div
+            ref={linksRow}
+            className="relative hidden items-center lg:flex"
+            onMouseLeave={() => moveTo(activeRef.current)}
+          >
+            <span
+              className="nav-ind invisible absolute inset-y-0 left-0 w-0 rounded-full bg-nevoa"
+              aria-hidden="true"
+            />
             {ITEMS.map((it, i) => {
               const current = active === i;
               const cls = `nav-link relative flex items-center gap-1 rounded-full px-2.5 py-2.5 text-[14px] xl:px-3.5 xl:text-[15px] transition-colors duration-300 ${
-                current ? "font-medium text-tinta" : "text-tinta/65 hover:text-tinta"
+                current
+                  ? "font-medium text-tinta"
+                  : "text-tinta/65 hover:text-tinta"
               }`;
               const ref = (node: HTMLAnchorElement | null) => {
                 linkRefs.current[i] = node;
@@ -235,7 +252,8 @@ export default function Navbar({ path = "/" }: { path?: string }) {
                   onMouseLeave={hideDrop}
                   onFocus={showDrop}
                   onBlur={(e) => {
-                    if (!e.currentTarget.contains(e.relatedTarget as Node)) hideDrop();
+                    if (!e.currentTarget.contains(e.relatedTarget as Node))
+                      hideDrop();
                   }}
                 >
                   <a
@@ -247,14 +265,21 @@ export default function Navbar({ path = "/" }: { path?: string }) {
                     className={cls}
                   >
                     {it.label}
-                    <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-300 ${drop ? "rotate-180" : ""}`} aria-hidden="true" />
+                    <ChevronDown
+                      className={`h-3.5 w-3.5 transition-transform duration-300 ${
+                        drop ? "rotate-180" : ""
+                      }`}
+                      aria-hidden="true"
+                    />
                   </a>
 
                   {/* Bridge keeps the hover alive across the gap between trigger and panel */}
                   <div
                     data-open={drop}
                     className={`absolute left-1/2 top-full z-30 w-[400px] -translate-x-1/2 pt-3 transition-[opacity,transform,visibility] duration-200 ${
-                      drop ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
+                      drop
+                        ? "visible translate-y-0 opacity-100"
+                        : "invisible -translate-y-1 opacity-0"
                     }`}
                   >
                     <div className="rounded-3xl border border-tinta/10 bg-white p-2 shadow-[0_24px_60px_-24px_rgba(30,27,46,0.4)]">
@@ -264,16 +289,28 @@ export default function Navbar({ path = "/" }: { path?: string }) {
                             <a
                               href={href}
                               aria-current={path === href ? "page" : undefined}
-                              className={`group flex items-center gap-3 rounded-2xl p-3 transition-colors hover:bg-perola ${path === href ? "bg-perola" : ""}`}
+                              className={`group flex items-center gap-3 rounded-2xl p-3 transition-colors hover:bg-perola ${
+                                path === href ? "bg-perola" : ""
+                              }`}
                             >
                               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-nevoa text-iris transition-colors group-hover:bg-iris group-hover:text-white">
-                                <Icon className="h-[18px] w-[18px]" aria-hidden="true" />
+                                <Icon
+                                  className="h-[18px] w-[18px]"
+                                  aria-hidden="true"
+                                />
                               </span>
                               <span className="min-w-0">
-                                <span className="block text-[14px] font-medium text-tinta">{label}</span>
-                                <span className="block text-[12.5px] text-tinta/60">{descricao}</span>
+                                <span className="block text-[14px] font-medium text-tinta">
+                                  {label}
+                                </span>
+                                <span className="block text-[12.5px] text-tinta/60">
+                                  {descricao}
+                                </span>
                               </span>
-                              <ChevronRight className="ml-auto h-4 w-4 text-tinta/30 transition-transform group-hover:translate-x-0.5 group-hover:text-iris" aria-hidden="true" />
+                              <ChevronRight
+                                className="ml-auto h-4 w-4 text-tinta/30 transition-transform group-hover:translate-x-0.5 group-hover:text-iris"
+                                aria-hidden="true"
+                              />
                             </a>
                           </li>
                         ))}
@@ -327,7 +364,9 @@ export default function Navbar({ path = "/" }: { path?: string }) {
                   href={it.href}
                   onClick={handleNavClick(it.href, close)}
                   className={`flex items-center gap-2 rounded-2xl px-3 py-2.5 text-[15px] ${
-                    active === i ? "bg-nevoa font-medium text-tinta" : "text-tinta/80"
+                    active === i
+                      ? "bg-nevoa font-medium text-tinta"
+                      : "text-tinta/80"
                   }`}
                 >
                   {it.label}
@@ -340,7 +379,11 @@ export default function Navbar({ path = "/" }: { path?: string }) {
                         <a
                           href={href}
                           onClick={close}
-                          className={`flex items-center gap-2.5 rounded-xl px-3 py-2 text-[14px] ${path === href ? "font-medium text-iris" : "text-tinta/75"}`}
+                          className={`flex items-center gap-2.5 rounded-xl px-3 py-2 text-[14px] ${
+                            path === href
+                              ? "font-medium text-iris"
+                              : "text-tinta/75"
+                          }`}
                         >
                           <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-nevoa text-iris">
                             <Icon className="h-3.5 w-3.5" aria-hidden="true" />
