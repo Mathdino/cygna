@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/brand/cygna-symbol-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#4A3F8F" />
+    <title>Cygna — Sistema de Agendamento e Gestão</title>
+    <meta name="description" content="Cygna é a plataforma de agendamentos para clínicas de estética, salões de beleza e autônomas de cílios e unhas: agenda online 24h, lembretes no WhatsApp, anamnese e financeiro." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="/fonts/Rencana-pt.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Loader do cisne (o mesmo da seção "Comece hoje"): CSS crítico inline, pinta antes de qualquer folha de estilo (src/app/lib/loader.ts) -->
+    <style>
+      .cygna-loader{position:fixed;inset:0;z-index:2147483000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;background:radial-gradient(120% 90% at 50% 0%,#4A3F8F 0%,#2E2860 55%,#1E1B2E 100%);transition:opacity .5s ease,visibility .5s ease}
+      .cygna-loader.is-done{opacity:0;visibility:hidden}
+      .cygna-loader__lake{position:relative;width:220px;height:170px;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent);mask:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent)}
+      .cygna-loader__swan,.cygna-loader__reflex{position:absolute;left:50%;width:110px;height:110px;margin-left:-55px}
+      .cygna-loader__swan{top:6px;animation:cygna-bob 1.8s ease-in-out infinite alternate}
+      .cygna-loader__reflex{top:99px;opacity:.18;filter:blur(1px);transform-origin:50% 0;animation:cygna-reflex 1.8s ease-in-out infinite alternate}
+      .cygna-loader svg{display:block;width:100%;height:100%;overflow:visible}
+      .cygna-loader__water{position:absolute;left:0;right:0;height:2px;border-radius:2px;background:repeating-linear-gradient(90deg,rgba(251,248,245,.55) 0 26px,transparent 26px 58px);animation:cygna-flow 1.6s linear infinite}
+      .cygna-loader__water--1{top:112px}
+      .cygna-loader__water--2{top:126px;opacity:.55;animation-duration:2.3s;background-size:84px 100%}
+      .cygna-loader__water--3{top:142px;opacity:.3;animation-duration:3s}
+      .cygna-loader__label{font:500 13px/1 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,248,245,.6)}
+      @keyframes cygna-bob{from{transform:translateY(0) rotate(0)}to{transform:translateY(-6px) rotate(-2deg)}}
+      @keyframes cygna-reflex{from{transform:skewX(0) scaleY(1)}to{transform:skewX(6deg) scaleY(.94)}}
+      @keyframes cygna-flow{from{background-position:0 0}to{background-position:58px 0}}
+      @media (prefers-reduced-motion:reduce){.cygna-loader__swan,.cygna-loader__reflex,.cygna-loader__water{animation:none}}
+    </style>
+    <noscript><style>.cygna-loader{display:none}</style></noscript>
+  </head>
+  <body>
+    <div id="cygna-loader" class="cygna-loader" role="status" aria-live="polite">
+      <div class="cygna-loader__lake" aria-hidden="true">
+        <span class="cygna-loader__water cygna-loader__water--1"></span>
+        <span class="cygna-loader__water cygna-loader__water--2"></span>
+        <span class="cygna-loader__water cygna-loader__water--3"></span>
+        <div class="cygna-loader__reflex"><svg viewBox="0 0 100 100" aria-hidden="true"><g transform="matrix(1 0 0 -1 0 100)"><g fill="#FBF8F5"><path d="M30 78C30 95 80 98 94 80C99 72 100 60 96 50C90 58 86 62 80 60C72 46 52 44 44 62C40 70 34 72 30 78Z"/><path d="M34 76C18 62 44 44 36 26C32 14 20 10 17 20" fill="none" stroke="#FBF8F5" stroke-width="8.5" stroke-linecap="round"/><circle cx="19" cy="19" r="6"/><path d="M16 15L3 27L18 24Z" fill="#FF7A59"/></g></g></svg></div>
+        <div class="cygna-loader__swan"><svg viewBox="0 0 100 100" aria-hidden="true"><g><g fill="#FBF8F5"><path d="M30 78C30 95 80 98 94 80C99 72 100 60 96 50C90 58 86 62 80 60C72 46 52 44 44 62C40 70 34 72 30 78Z"/><path d="M34 76C18 62 44 44 36 26C32 14 20 10 17 20" fill="none" stroke="#FBF8F5" stroke-width="8.5" stroke-linecap="round"/><circle cx="19" cy="19" r="6"/><path d="M16 15L3 27L18 24Z" fill="#FF7A59"/></g><path d="M52 70C60 60 74 58 86 66" fill="none" stroke="#4A3F8F" stroke-opacity=".35" stroke-width="1.6" stroke-linecap="round"/><circle cx="21" cy="17" r="1.1" fill="#1E1B2E"/></g></svg></div>
+      </div>
+      <span class="cygna-loader__label">Carregando</span>
+    </div>
+    <!-- Rede de segurança: se o app não subir, o loader sai sozinho -->
+    <script>setTimeout(function(){var l=document.getElementById("cygna-loader");if(l){l.classList.add("is-done");setTimeout(function(){l.remove()},450)}},6000)</script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

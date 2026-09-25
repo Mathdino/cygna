@@ -1,0 +1,357 @@
+@import "tailwindcss";
+
+/* ── Cygna brand tokens (formato Shadcn/UI) ───────────────────────────── */
+:root {
+  --background: #fbf8f5; /* Pérola  */
+  --foreground: #1e1b2e; /* Tinta   */
+  --primary: #4a3f8f; /* Íris    */
+  --primary-foreground: #ffffff;
+  --accent: #ff7a59; /* Bico — acento raro; texto sobre ele sempre em Tinta */
+  --accent-foreground: #1e1b2e;
+  --secondary: #e7e3f5; /* Névoa   */
+  --muted: #f3d6d2; /* Rosé    */
+  --success: #2e8b6e;
+  --warning: #e3a72f;
+  --destructive: #d64545;
+  --radius: 14px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+
+  /* Brand names, same values */
+  --color-tinta: var(--foreground);
+  --color-perola: var(--background);
+  --color-iris: var(--primary);
+  --color-nevoa: var(--secondary);
+  --color-rose: var(--muted);
+  --color-bico: var(--accent);
+
+  --radius-2xl: var(--radius);
+  --radius-3xl: calc(var(--radius) * 2);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-accent: "Rencana", "Outfit", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  .btn {
+    font-family: var(--font-display);
+  }
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Escala tipográfica */
+@utility t-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.083; /* 48/52 */
+  letter-spacing: -0.025em;
+}
+@utility t-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(24px, 3.4vw, 32px);
+  line-height: 1.1875; /* 32/38 */
+  letter-spacing: -0.02em;
+}
+@utility t-subtitle {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+}
+@utility t-caption {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+/* Rencana: só em destaques emocionais. Tem um peso só (400) e não tem itálico, então nada de negrito/itálico
+   sintético. (O nome da classe ficou do tempo da Fraunces itálica.) */
+.accent-italic {
+  font-family: var(--font-accent);
+  font-style: normal;
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: 0;
+}
+
+/* StrokeTitle: the real text is hidden while its SVG copy draws on top */
+.stroke-title-pending {
+  -webkit-text-fill-color: transparent;
+}
+.stroke-title-pending [data-stroke-skip] {
+  -webkit-text-fill-color: currentColor;
+}
+.stroke-title-svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Native fallback for the horizontal audience track (mobile / reduced motion). */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Rotating gradient border on the featured pricing card; --angle is tweened by GSAP. */
+.glow-border {
+  --angle: 0deg;
+  background:
+    linear-gradient(var(--foreground), var(--foreground)) padding-box,
+    conic-gradient(from var(--angle), var(--primary), var(--secondary), var(--primary)) border-box;
+  border: 5px solid transparent;
+}
+
+/* Header after the page has scrolled: more solid glass, deeper shadow */
+.is-scrolled .nav-pill {
+  background-color: rgb(255 255 255 / 0.92);
+  box-shadow: 0 14px 40px -14px rgb(30 27 46 / 0.28);
+}
+
+/* WaveMarquee: static wrapped list by default, gliding track once GSAP is live */
+.wave-marquee {
+  position: relative;
+}
+.wave-marquee:not(.is-live) .wave-dup,
+.wave-marquee:not(.is-live) .wave-svg {
+  display: none;
+}
+/* Static list: benefit line stays readable by screen readers, shown on hover/focus */
+.wave-marquee:not(.is-live) .chip-desc {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.wave-marquee:not(.is-live) .wave-chip {
+  position: relative;
+}
+/* Floats under the chip instead of reflowing the list, so the hovered chip never slips from the cursor */
+.wave-marquee:not(.is-live) .wave-chip:is(:hover, :focus-within) .chip-desc {
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 10;
+  width: 230px;
+  height: auto;
+  padding: 10px 12px;
+  clip-path: none;
+  white-space: normal;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 16px 32px -18px rgb(30 27 46 / 0.45);
+}
+.wave-marquee.is-live {
+  height: 170px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+}
+.wave-marquee.is-live .wave-list {
+  display: block;
+}
+.wave-marquee.is-live .wave-chip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  will-change: transform;
+}
+
+/* ── Páginas internas ─────────────────────────────────────────────────── */
+
+/* Âncoras internas param abaixo do header fixo (um lugar só — não somar com scroll-margin). */
+html {
+  scroll-padding-top: 110px;
+}
+
+/* Tabelas: normais no desktop; 601–768px compactas; até 600px, com 3+ colunas,
+   cada linha vira um cartão com o rótulo da coluna (data-label) acima do valor. */
+.tabela-wrap {
+  overflow: hidden;
+  border-radius: calc(var(--radius) * 2);
+  border: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);
+  background: #fff;
+  margin: 1.75rem 0;
+}
+.tabela-cygna {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.tabela-cygna th {
+  background: var(--secondary);
+  color: var(--foreground);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-align: left;
+  padding: 14px 18px;
+  font-size: 14px;
+}
+.tabela-cygna td {
+  padding: 14px 18px;
+  border-top: 1px solid color-mix(in srgb, var(--foreground) 8%, transparent);
+  color: color-mix(in srgb, var(--foreground) 80%, transparent);
+  vertical-align: top;
+}
+.tabela-cygna td:first-child {
+  font-weight: 500;
+  color: var(--foreground);
+}
+@media (max-width: 768px) {
+  .tabela-cygna {
+    font-size: 14px;
+  }
+  .tabela-cygna th,
+  .tabela-cygna td {
+    padding: 11px 13px;
+  }
+  .tabela-wrap,
+  .tabela-cygna:not(.tabela-empilha) {
+    overflow-x: auto;
+  }
+}
+@media (max-width: 600px) {
+  .tabela-empilha thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .tabela-empilha,
+  .tabela-empilha tbody,
+  .tabela-empilha tr,
+  .tabela-empilha td {
+    display: block;
+    width: 100%;
+  }
+  .tabela-empilha tr {
+    padding: 6px 0;
+    border-top: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);
+  }
+  .tabela-empilha tr:first-child {
+    border-top: 0;
+  }
+  .tabela-empilha td {
+    border-top: 0;
+    padding: 6px 16px;
+  }
+  .tabela-empilha td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--primary);
+    margin-bottom: 2px;
+  }
+  .tabela-empilha td:first-child {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+/* Corpo dos posts do blog */
+.prose-cygna {
+  font-size: 17px;
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--foreground) 82%, transparent);
+}
+.prose-cygna > * + * {
+  margin-top: 1.1em;
+}
+.prose-cygna h2 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 30px);
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-top: 2.2em;
+}
+.prose-cygna h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-top: 1.8em;
+}
+.prose-cygna h2 + p,
+.prose-cygna h3 + p {
+  margin-top: 0.6em;
+}
+.prose-cygna a {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--primary) 35%, transparent);
+  text-underline-offset: 4px;
+}
+.prose-cygna a:hover {
+  text-decoration-color: var(--primary);
+}
+.prose-cygna strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+.prose-cygna ul,
+.prose-cygna ol {
+  padding-left: 1.3em;
+}
+.prose-cygna ul {
+  list-style: disc;
+}
+.prose-cygna ol {
+  list-style: decimal;
+}
+.prose-cygna li + li {
+  margin-top: 0.45em;
+}
+.prose-cygna li::marker {
+  color: var(--primary);
+}
+
+/* FAQ <details>: some o triângulo nativo */
+.faq-details summary::-webkit-details-marker {
+  display: none;
+}

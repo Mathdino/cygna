@@ -1,0 +1,17 @@
+/* Cygna type system: Outfit (títulos e botões), Inter (interface e texto), Rencana (acento de marketing) */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&display=swap");
+
+/*
+ * Rencana by Khurasan (free for personal and commercial use). The original ships only basic Latin;
+ * Rencana-pt adds Portuguese accented letters (áàâã éê í óôõ ú ç, upper and lower) and en/em dash,
+ * composed from the font's own accent marks.
+ */
+@font-face {
+  font-family: "Rencana";
+  src:
+    url("/fonts/Rencana-pt.woff2") format("woff2"),
+    url("/fonts/Rencana-pt.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
