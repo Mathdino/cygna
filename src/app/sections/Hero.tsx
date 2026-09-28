@@ -110,7 +110,7 @@ export default function Hero() {
 
           <p className="hero-sub mt-4 max-w-xl px-2 text-tinta/75 sm:mt-6" style={{ fontSize: "clamp(13px, 3.5vw, 16px)" }}>
             Suas clientes marcam pelo link na bio, recebem lembrete no WhatsApp e confirmam com um toque. Leve na
-            superfície, precisa por baixo — como um cisne.
+            superfície, precisa nos bastidores — como um cisne.
           </p>
 
           <a

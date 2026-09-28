@@ -1,5 +1,15 @@
 import { useRef, useState } from "react";
-import { ArrowRight, Brush, Check, Eye, Hand, Scissors, Sparkles, UserRound, type LucideIcon } from "lucide-react";
+import {
+  ArrowDown,
+  Brush,
+  Check,
+  Eye,
+  Hand,
+  Scissors,
+  Sparkles,
+  UserRound,
+  type LucideIcon,
+} from "lucide-react";
 import { gsap, ScrollTrigger, ScrollSmoother, useGSAP, DESKTOP_MOTION, MOBILE_MOTION, MOTION } from "../lib/gsap";
 import StrokeTitle from "../components/StrokeTitle";
 import GradientText from "../components/GradientText";
@@ -240,64 +250,79 @@ export default function Audience() {
         <div className="audience-head mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <GradientText className="text-[14px] font-semibold tracking-wide">
-            Para quem é
-          </GradientText>
-            <StrokeTitle
-              className="mt-5 max-w-6xl t-display"
-            >
-              Um sistema, <span className="accent-italic">o seu jeito</span> de atender
+              Para quem é
+            </GradientText>
+            <StrokeTitle className="mt-5 max-w-6xl t-display">
+              Um sistema, <span className="accent-italic">o seu jeito</span> de
+              atender
             </StrokeTitle>
           </div>
           <p className="flex items-center gap-2 text-[14px] text-tinta/60">
-            Role para conhecer <ArrowRight className="h-4 w-4" />
+            Role para conhecer <ArrowDown className="h-4 w-4" />
           </p>
         </div>
 
         <div className="audience-stage pt-6">
-        <div className="mx-auto hidden h-[2px] w-full max-w-6xl px-6 md:block">
-          <div className="h-full w-full bg-tinta/10">
-            <div className="audience-progress h-full origin-left scale-x-0 bg-iris" />
+          <div className="mx-auto hidden h-[2px] w-full max-w-6xl px-6 md:block">
+            <div className="h-full w-full bg-tinta/10">
+              <div className="audience-progress h-full origin-left scale-x-0 bg-iris" />
+            </div>
           </div>
-        </div>
 
-        <div ref={scroller} className="no-scrollbar mt-8 snap-x snap-mandatory overflow-x-auto">
-          <div ref={track} className="flex w-max gap-4 px-6 sm:gap-6">
-            {PERSONAS.map((p, i) => (
-              <article
-                key={p.title}
-                className={`persona relative flex w-[82vw] shrink-0 snap-center flex-col overflow-hidden rounded-3xl bg-gradient-to-br ${p.tone} p-6 shadow-[0_24px_50px_-30px_rgb(30_27_46/0.35)] ring-1 ring-tinta/[0.06] sm:w-[430px] sm:p-8`}
-              >
-                <PersonaPhoto src={p.image} alt={p.title} />
-                <span
-                  className="persona-num pointer-events-none absolute -right-4 -top-6 select-none text-[140px] font-semibold leading-none text-white/70 sm:text-[180px]"
-                  aria-hidden="true"
+          <div
+            ref={scroller}
+            className="no-scrollbar mt-8 snap-x snap-mandatory overflow-x-auto"
+          >
+            <div ref={track} className="flex w-max gap-4 px-6 sm:gap-6">
+              {PERSONAS.map((p, i) => (
+                <article
+                  key={p.title}
+                  className={`persona relative flex w-[calc(100vw-3rem)] shrink-0 snap-center flex-col overflow-hidden rounded-3xl bg-gradient-to-br ${p.tone} p-6 shadow-[0_24px_50px_-30px_rgb(30_27_46/0.35)] ring-1 ring-tinta/[0.06] sm:w-[430px] sm:p-8`}
                 >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="persona-icon relative flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-iris shadow-sm">
-                  <p.icon className="h-6 w-6" />
-                </span>
-                <h3 className="relative mt-28 text-[26px] font-semibold tracking-tight uppercase">{p.title}</h3>
-                <p className="relative mt-2 text-[15px] leading-relaxed text-tinta/80">{p.text}</p>
-                <ul className="relative mt-5 flex flex-col gap-2">
-                  {p.bullets.map((b) => (
-                    <li key={b} className="persona-bullet flex items-center gap-2 text-[14px] text-tinta/90">
-                      <Check className="h-4 w-4 text-iris" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-                <div className="persona-next relative mt-6 flex items-center gap-3 rounded-2xl bg-white p-4 shadow-sm">
-                  <span className="rounded-xl bg-tinta px-3 py-2 text-[13px] font-semibold text-white">{p.next.time}</span>
-                  <span className="min-w-0">
-                    <span className="block truncate text-[14px] font-medium">{p.next.service}</span>
-                    <span className="block text-[12px] text-tinta/60">{p.next.client} · confirmado no WhatsApp</span>
+                  <PersonaPhoto src={p.image} alt={p.title} />
+                  <span
+                    className="persona-num pointer-events-none absolute -right-4 -top-6 select-none text-[140px] font-semibold leading-none text-white/70 sm:text-[180px]"
+                    aria-hidden="true"
+                  >
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                </div>
-              </article>
-            ))}
+                  <span className="persona-icon relative flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-iris shadow-sm">
+                    <p.icon className="h-6 w-6" />
+                  </span>
+                  <h3 className="relative mt-28 text-[26px] font-semibold tracking-tight uppercase">
+                    {p.title}
+                  </h3>
+                  <p className="relative mt-2 text-[15px] leading-relaxed text-tinta/80">
+                    {p.text}
+                  </p>
+                  <ul className="relative mt-5 flex flex-col gap-2">
+                    {p.bullets.map((b) => (
+                      <li
+                        key={b}
+                        className="persona-bullet flex items-center gap-2 text-[14px] text-tinta/90"
+                      >
+                        <Check className="h-4 w-4 text-iris" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="persona-next relative mt-6 flex items-center gap-3 rounded-2xl bg-white p-4 shadow-sm">
+                    <span className="rounded-xl bg-tinta px-3 py-2 text-[13px] font-semibold text-white">
+                      {p.next.time}
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block truncate text-[14px] font-medium">
+                        {p.next.service}
+                      </span>
+                      <span className="block text-[12px] text-tinta/60">
+                        {p.next.client} · confirmado no WhatsApp
+                      </span>
+                    </span>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </section>

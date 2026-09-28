@@ -47,7 +47,7 @@ const PRINCIPIOS = [
   {
     Icon: Feather,
     titulo: "Leve na superfície",
-    texto: "A cliente vê um link simples e uma mensagem clara no WhatsApp. Por baixo, a agenda cruza profissional, sala, sinal e manutenção, como o cisne que desliza sem mostrar esforço.",
+    texto: "A cliente vê um link simples e uma mensagem clara no WhatsApp. Nos bastidores, a agenda cruza profissional, sala, sinal e manutenção, como o cisne que desliza sem mostrar esforço.",
   },
   {
     Icon: Unlock,
@@ -82,7 +82,7 @@ export function EmpresaPage() {
             <div className="mt-5 flex flex-col gap-4 text-[16.5px] leading-[1.75] text-tinta/80">
               <p>
                 Cygna vem de <em>cygnus</em>, o cisne em latim. Escolhemos o cisne porque ele resume o que queremos que o sistema seja para
-                quem trabalha com beleza: leve na superfície e preciso por baixo. Quem olha vê um movimento tranquilo; quem está na água sabe
+                quem trabalha com beleza: leve na superfície e preciso nos bastidores. Quem olha vê um movimento tranquilo; quem está na água sabe
                 o trabalho constante que sustenta esse deslizar.
               </p>
               <p>

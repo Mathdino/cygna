@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { Mail, MessageCircle, Send, ShieldCheck } from "lucide-react";
+import { Mail, MessageCircle, Send } from "lucide-react";
 import { SEGMENTOS } from "../data/segmentos";
 import { SITE, TESTE_GRATIS_DIAS } from "../site/config";
 import { REDES_SOCIAIS, urlCurta } from "../site/social";
@@ -33,8 +33,6 @@ export const CONTATO = {
   ],
 };
 
-const DPO_EMAIL = SITE.legal.dpoEmail || SITE.contact.email;
-
 export function ContatoPage() {
   return (
     <PageShell path="/contato">
@@ -67,6 +65,8 @@ export function ContatoPage() {
                 valor="Abrir conversa"
               />
             )}
+            {/* Para reativar: importar ShieldCheck de lucide-react e recriar
+                const DPO_EMAIL = SITE.legal.dpoEmail || SITE.contact.email; */}
             {/* {DPO_EMAIL && (
               <Canal
                 Icon={ShieldCheck}

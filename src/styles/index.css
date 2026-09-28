@@ -153,7 +153,7 @@
   display: none;
 }
 /* Static list: benefit line stays readable by screen readers, shown on hover/focus */
-.wave-marquee:not(.is-live) .chip-desc {
+.wave-marquee:not(.is-live):not(.is-carousel) .chip-desc {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -165,7 +165,7 @@
   position: relative;
 }
 /* Floats under the chip instead of reflowing the list, so the hovered chip never slips from the cursor */
-.wave-marquee:not(.is-live) .wave-chip:is(:hover, :focus-within) .chip-desc {
+.wave-marquee:not(.is-live):not(.is-carousel) .wave-chip:is(:hover, :focus-within) .chip-desc {
   top: calc(100% + 6px);
   left: 0;
   z-index: 10;
@@ -192,6 +192,63 @@
   left: 0;
   top: 0;
   will-change: transform;
+}
+
+/* Phones: snap carousel. The card in the middle of the screen is the open one. */
+.wave-marquee.is-carousel .wave-list {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 6px 14vw 14px;
+  -webkit-overflow-scrolling: touch;
+}
+.wave-marquee.is-carousel .wave-list::-webkit-scrollbar {
+  display: none;
+}
+.wave-marquee.is-carousel .wave-chip {
+  position: relative;
+  flex: 0 0 72vw;
+  scroll-snap-align: center;
+}
+.wave-marquee.is-carousel .chip-btn {
+  width: 100%;
+  padding-bottom: 8px;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+.wave-marquee.is-carousel .chip-icon {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.wave-marquee.is-carousel .wave-chip .chip-desc {
+  position: static;
+  width: 100%;
+  clip-path: none;
+  white-space: normal;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: max-height 0.45s ease, opacity 0.3s ease, padding 0.45s ease;
+}
+.wave-marquee.is-carousel .wave-chip.is-open .chip-desc {
+  max-height: 160px;
+  opacity: 1;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.wave-marquee.is-carousel .wave-chip.is-open .chip-btn {
+  transform: translateY(-2px);
+  border-color: rgb(74 63 143 / 0.35);
+  box-shadow: 0 22px 40px -18px rgb(74 63 143 / 0.55);
+}
+.wave-marquee.is-carousel .wave-chip.is-open .chip-icon {
+  background-color: #4a3f8f;
+  color: #fff;
 }
 
 /* ── Páginas internas ─────────────────────────────────────────────────── */

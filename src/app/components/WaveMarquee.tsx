@@ -1,5 +1,5 @@
 import { useRef, type ReactNode } from "react";
-import { gsap, ScrollTrigger, Draggable, useGSAP, MOTION } from "../lib/gsap";
+import { gsap, ScrollTrigger, Draggable, useGSAP, DESKTOP_MOTION, MOBILE_MOTION } from "../lib/gsap";
 
 /*
  * Feature chips gliding along a straight, endless track. Scroll velocity speeds
@@ -21,7 +21,7 @@ export default function WaveMarquee({ items }: { items: WaveItem[] }) {
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
-      mm.add(MOTION, () => {
+      mm.add(DESKTOP_MOTION, () => {
         const el = root.current!;
         el.classList.add("is-live");
         const chips = gsap.utils.toArray<HTMLElement>(".wave-chip", el);
@@ -245,6 +245,108 @@ export default function WaveMarquee({ items }: { items: WaveItem[] }) {
           el.classList.remove("is-live");
           gsap.set(chips, { clearProps: "transform,opacity,zIndex" });
           gsap.set(gsap.utils.toArray(".chip-btn, .chip-icon, .chip-word, .chip-icon > *", el), { clearProps: "all" });
+        };
+      });
+
+      // Phones: the straight track never fitted, so the chips are a snap carousel instead.
+      // Whichever card sits in the middle of the screen opens itself; the others stay closed.
+      mm.add(MOBILE_MOTION, () => {
+        const el = root.current!;
+        el.classList.add("is-carousel");
+        const list = el.querySelector<HTMLElement>(".wave-list")!;
+        const chips = gsap.utils.toArray<HTMLElement>(".wave-chip:not(.wave-dup)", el);
+
+        let frame = 0;
+        let current = 0;
+        const sync = () => {
+          frame = 0;
+          const mid = list.scrollLeft + list.clientWidth / 2;
+          let best = 0;
+          let bestGap = Infinity;
+          chips.forEach((chip, i) => {
+            const gap = Math.abs(chip.offsetLeft + chip.offsetWidth / 2 - mid);
+            if (gap < bestGap) {
+              bestGap = gap;
+              best = i;
+            }
+          });
+          current = best;
+          chips.forEach((chip, i) => {
+            const isOpen = i === best;
+            chip.classList.toggle("is-open", isOpen);
+            chip.querySelector(".chip-btn")!.setAttribute("aria-expanded", String(isOpen));
+          });
+        };
+        const queue = () => {
+          if (!frame) frame = requestAnimationFrame(sync);
+        };
+        list.addEventListener("scroll", queue, { passive: true });
+        window.addEventListener("resize", queue);
+        document.fonts?.ready.then(queue);
+        sync();
+
+        const centre = (chip: HTMLElement) =>
+          list.scrollTo({ left: chip.offsetLeft - (list.clientWidth - chip.offsetWidth) / 2, behavior: "smooth" });
+
+        // Runs on its own: one card every STEP_MS, bouncing back at the ends instead of
+        // sweeping all the way home. Sleeps while the strip is off screen or the tab is
+        // in the background, and stands down for HOLD_MS whenever the visitor takes over.
+        const STEP_MS = 3000;
+        const HOLD_MS = 6000;
+        let direction = 1;
+        let onScreen = false;
+        let heldUntil = 0;
+        const step = () => {
+          if (!onScreen || document.hidden || Date.now() < heldUntil) return;
+          if (current >= chips.length - 1) direction = -1;
+          else if (current <= 0) direction = 1;
+          const next = gsap.utils.clamp(0, chips.length - 1, current + direction);
+          if (next === current) return;
+          current = next;
+          centre(chips[next]);
+        };
+        const timer = window.setInterval(step, STEP_MS);
+
+        const hold = () => {
+          heldUntil = Date.now() + HOLD_MS;
+        };
+        list.addEventListener("pointerdown", hold);
+        list.addEventListener("touchstart", hold, { passive: true });
+        list.addEventListener("wheel", hold, { passive: true });
+
+        const watcher = new IntersectionObserver(([entry]) => (onScreen = entry.isIntersecting), { threshold: 0.35 });
+        watcher.observe(el);
+
+        // Tapping a card brings it to the middle, which is what opens it.
+        const taps = chips.map((chip) => {
+          const btn = chip.querySelector<HTMLElement>(".chip-btn")!;
+          const onTap = () => {
+            hold();
+            centre(chip);
+          };
+          btn.addEventListener("click", onTap);
+          btn.addEventListener("focus", onTap);
+          return () => {
+            btn.removeEventListener("click", onTap);
+            btn.removeEventListener("focus", onTap);
+          };
+        });
+
+        return () => {
+          if (frame) cancelAnimationFrame(frame);
+          clearInterval(timer);
+          watcher.disconnect();
+          list.removeEventListener("scroll", queue);
+          list.removeEventListener("pointerdown", hold);
+          list.removeEventListener("touchstart", hold);
+          list.removeEventListener("wheel", hold);
+          window.removeEventListener("resize", queue);
+          taps.forEach((fn) => fn());
+          chips.forEach((chip) => {
+            chip.classList.remove("is-open");
+            chip.querySelector(".chip-btn")!.setAttribute("aria-expanded", "false");
+          });
+          el.classList.remove("is-carousel");
         };
       });
     },
