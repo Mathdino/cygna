@@ -1,6 +1,6 @@
 import { Feather, HeartHandshake, KeyRound, Unlock } from "lucide-react";
 import { SEGMENTOS, segmentoPath } from "../data/segmentos";
-import { PLANOS, SITE, TESTE_GRATIS_DIAS } from "../site/config";
+import { PLANOS, SITE, TESTE_GRATIS_DIAS, brl } from "../site/config";
 import { CtaFinal, FaqList, Numeros, PageHero, PageShell, Relacionados } from "./ui";
 
 /* ─── /empresa (AboutPage) ────────────────────────────────────────────────── */
@@ -25,7 +25,7 @@ export const EMPRESA = {
     },
     {
       q: "Quanto custa usar a Cygna?",
-      a: `Há três planos mensais: Autônoma, por R$ ${PLANOS[0].mensal}; Studio, por R$ ${PLANOS[1].mensal}; e Clínica, por R$ ${PLANOS[2].mensal}. No plano anual os valores caem para R$ ${PLANOS[0].anual}, R$ ${PLANOS[1].anual} e R$ ${PLANOS[2].anual} por mês. Todos têm ${TESTE_GRATIS_DIAS} dias grátis, sem cartão e sem fidelidade.`,
+      a: `Há três planos mensais: Autônoma, por R$ ${brl(PLANOS[0].mensal)}; Studio, por R$ ${brl(PLANOS[1].mensal)}; e Clínica, por R$ ${brl(PLANOS[2].mensal)}. No plano anual você ganha 2 meses grátis e paga R$ ${brl(PLANOS[0].anual)}, R$ ${brl(PLANOS[1].anual)} e R$ ${brl(PLANOS[2].anual)} por ano. Todos têm ${TESTE_GRATIS_DIAS} dias grátis, sem cartão e sem fidelidade.`,
     },
     {
       q: "De quem são os dados das minhas clientes?",

@@ -80,12 +80,39 @@ export const SITE = {
 
 export type SiteConfig = typeof SITE;
 
-/** Planos exibidos na home (seção Planos). Mesmo valor em todo lugar que cita preço. */
+/**
+ * Planos exibidos na home (seção Planos). Mesmo valor em todo lugar que cita preço.
+ * mensal = preço por mês; anual = valor total cobrado por ano (plano anual = 2 meses grátis).
+ */
 export const PLANOS = [
-  { id: "autonoma", nome: "Autônoma", mensal: 49, anual: 39, resumo: "1 profissional, agenda online, link na bio, lembretes no WhatsApp, ficha de clientes e financeiro básico." },
-  { id: "studio", nome: "Studio", mensal: 99, anual: 79, resumo: "Até 5 profissionais, comissões automáticas, pacotes e fidelidade, sinal via Pix e relatórios por serviço." },
-  { id: "clinica", nome: "Clínica", mensal: 199, anual: 159, resumo: "Profissionais ilimitados, anamnese com fotos de evolução, salas e equipamentos, estoque e várias unidades." },
+  {
+    id: "autonoma",
+    nome: "Autônoma",
+    mensal: 39.9,
+    anual: 399.9,
+    resumo: "1 profissional, agenda online com link na bio, lembretes no WhatsApp com mensagem pronta, ficha de clientes, lista de espera, vendas e financeiro básico.",
+  },
+  {
+    id: "studio",
+    nome: "Studio",
+    mensal: 99.9,
+    anual: 990.9,
+    resumo: "Até 5 profissionais, comissões automáticas, pacotes de sessões com compra pelo link, relatórios por serviço e profissional e equipe com cargos e logins próprios.",
+  },
+  {
+    id: "clinica",
+    nome: "Clínica",
+    mensal: 219.9,
+    anual: 2190.9,
+    resumo: "Profissionais ilimitados, prontuário com anamnese, fotos de evolução e termos, estoque com lotes e validade, salas e equipamentos e acesso restrito por cargo.",
+  },
 ] as const;
+
+/** Valor em reais no formato brasileiro, sem o "R$": 39.9 → "39,90"; 2190.9 → "2.190,90". */
+export const brl = (v: number) => v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+/** Quanto o plano anual sai por mês (arredondado ao centavo): 399,90/ano → 33,33. */
+export const anualPorMes = (anual: number) => Math.round(Math.round(anual * 100) / 12) / 100;
 
 export type PlanoId = (typeof PLANOS)[number]["id"];
 

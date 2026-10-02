@@ -1,7 +1,7 @@
 import { ArrowRight, Check, ChevronRight } from "lucide-react";
 import { SEGMENTOS, segmentoPath, type Segmento } from "../data/segmentos";
 import { getPost, postPath } from "../data/blog";
-import { PLANOS, TESTE_GRATIS_DIAS } from "../site/config";
+import { PLANOS, TESTE_GRATIS_DIAS, brl } from "../site/config";
 import { Blocos, CtaFinal, FaqList, Numeros, PageHero, PageShell, Relacionados, Tabela } from "./ui";
 
 /* ─── /segmentos/{slug} ───────────────────────────────────────────────────── */
@@ -44,10 +44,10 @@ export function SegmentoPage({ seg }: { seg: Segmento }) {
           <div className="rounded-3xl bg-perola p-6">
             <p className="flex items-baseline gap-1">
               <span className="text-[15px] text-tinta/60">R$</span>
-              <span className="font-display text-[52px] font-semibold leading-none tracking-tight">{plano.mensal}</span>
+              <span className="font-display text-[52px] font-semibold leading-none tracking-tight">{brl(plano.mensal)}</span>
               <span className="text-[15px] text-tinta/60">/mês</span>
             </p>
-            <p className="mt-1 text-[13px] text-tinta/60">ou R$ {plano.anual}/mês no plano anual</p>
+            <p className="mt-1 text-[13px] text-tinta/60">ou R$ {brl(plano.anual)}/ano no plano anual (2 meses grátis)</p>
             <p className="mt-4 flex items-start gap-2 text-[14px] text-tinta/75">
               <Check className="mt-0.5 h-4 w-4 shrink-0 text-iris" aria-hidden="true" />
               {plano.resumo}
@@ -90,7 +90,7 @@ export const HUB_SEGMENTOS = {
   faq: [
     {
       q: "Qual plano da Cygna escolher para o meu negócio?",
-      a: "Depende do tamanho da equipe e dos recursos. Quem atende sozinha começa no Autônoma, por R$ 49 por mês. Equipes de até 5 profissionais usam o Studio, por R$ 99. Clínicas com anamnese, salas, estoque ou várias unidades usam o Clínica, por R$ 199. Todos têm 14 dias grátis.",
+      a: "Depende do tamanho da equipe e dos recursos. Quem atende sozinha começa no Autônoma, por R$ 39,90 por mês. Equipes de até 5 profissionais usam o Studio, por R$ 99,90. Clínicas com prontuário, salas, estoque ou equipe grande usam o Clínica, por R$ 219,90. No plano anual, 2 meses saem grátis. Todos têm 14 dias grátis.",
     },
     {
       q: "Posso mudar de plano depois de começar?",
@@ -113,7 +113,7 @@ const COMPARATIVO = {
     ["Quem decide", "Dona ou responsável técnica da clínica", "Dono do salão ou gerente", "A própria profissional"],
     ["Dor principal", "Controlar protocolo, pacote e anamnese", "Coordenar equipe, comissão e caixa", "Trazer a cliente de volta na manutenção"],
     ["Recurso-chave", "Anamnese digital e saldo de sessões", "Agenda por profissional e comissão", "Lembrete de retorno e sinal via Pix"],
-    ["Plano indicado", "Clínica · R$ 199/mês", "Studio · R$ 99/mês", "Autônoma · R$ 49/mês"],
+    ["Plano indicado", "Clínica · R$ 219,90/mês", "Studio · R$ 99,90/mês", "Autônoma · R$ 39,90/mês"],
   ],
 };
 

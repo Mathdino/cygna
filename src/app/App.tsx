@@ -77,11 +77,11 @@ export default function App() {
             <Problem />
             <Features />
             <Audience />
+            <Testimonials />
+            <Pricing />
             <HowItWorks />
             <AppShowcase />
             <Stats />
-            <Testimonials />
-            <Pricing />
             <Faq />
             <FinalCta />
           </main>

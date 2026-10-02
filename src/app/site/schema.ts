@@ -178,7 +178,7 @@ export function schemaService({
           offers: {
             "@type": "Offer",
             name: `Plano ${plano.nome}`,
-            price: String(plano.mensal),
+            price: plano.mensal.toFixed(2),
             priceCurrency: "BRL",
             description: plano.resumo,
             url: urlAbs("/#planos"),
@@ -209,7 +209,7 @@ export function schemaSoftware(): Node {
     offers: PLANOS.map((p) => ({
       "@type": "Offer",
       name: `Plano ${p.nome}`,
-      price: String(p.mensal),
+      price: p.mensal.toFixed(2),
       priceCurrency: "BRL",
       description: p.resumo,
       url: urlAbs("/#planos"),

@@ -72,7 +72,7 @@ export const SEGMENTOS: Segmento[] = [
     audiencia: "Clínicas de estética facial e corporal",
     categoria: "Software de gestão para clínica de estética",
     numeros: [
-      { valor: "R$ 199", rotulo: "por mês no plano Clínica, com profissionais ilimitados" },
+      { valor: "R$ 219,90", rotulo: "por mês no plano Clínica, com profissionais ilimitados" },
       { valor: "1 dia", rotulo: "antes do horário sai o lembrete com botão de confirmar" },
       { valor: "14 dias", rotulo: "de teste grátis, sem cartão de crédito" },
       { valor: "0", rotulo: "fidelidade: cancela pelo painel quando quiser" },
@@ -159,7 +159,7 @@ export const SEGMENTOS: Segmento[] = [
     faq: [
       {
         q: "Qual o melhor sistema para clínica de estética pequena?",
-        a: "Para clínica pequena, o ideal é um sistema que junte agenda, anamnese e pacotes sem exigir instalação. A Cygna funciona no navegador, custa R$ 199 por mês no plano Clínica com profissionais ilimitados e pode ser testada por 14 dias grátis, sem cartão e sem fidelidade.",
+        a: "Para clínica pequena, o ideal é um sistema que junte agenda, anamnese e pacotes sem exigir instalação. A Cygna funciona no navegador, custa R$ 219,90 por mês no plano Clínica com profissionais ilimitados e pode ser testada por 14 dias grátis, sem cartão e sem fidelidade.",
       },
       {
         q: "A anamnese digital tem validade como a de papel?",
@@ -203,7 +203,7 @@ export const SEGMENTOS: Segmento[] = [
     audiencia: "Salões de beleza com equipe de profissionais",
     categoria: "Software de gestão para salão de beleza",
     numeros: [
-      { valor: "R$ 99", rotulo: "por mês no plano Studio, com até 5 profissionais" },
+      { valor: "R$ 99,90", rotulo: "por mês no plano Studio, com até 5 profissionais" },
       { valor: "5", rotulo: "agendas independentes numa só tela no plano Studio" },
       { valor: "1 toque", rotulo: "para a cliente confirmar ou remarcar pelo WhatsApp" },
       { valor: "14 dias", rotulo: "de teste grátis, sem cartão de crédito" },
@@ -287,7 +287,7 @@ export const SEGMENTOS: Segmento[] = [
     faq: [
       {
         q: "Qual o melhor sistema para salão de beleza com vários profissionais?",
-        a: "É o que mostra a agenda de cada profissional lado a lado e calcula a comissão por serviço. A Cygna faz isso no plano Studio, por R$ 99 por mês para até 5 profissionais, com lembrete no WhatsApp e caixa do dia. Dá para testar 14 dias grátis, sem cartão.",
+        a: "É o que mostra a agenda de cada profissional lado a lado e calcula a comissão por serviço. A Cygna faz isso no plano Studio, por R$ 99,90 por mês para até 5 profissionais, com lembrete no WhatsApp e caixa do dia. Dá para testar 14 dias grátis, sem cartão.",
       },
       {
         q: "Como o sistema calcula a comissão de cada profissional?",
@@ -321,17 +321,17 @@ export const SEGMENTOS: Segmento[] = [
     icon: Eye,
     metaTitle: "Agenda para lash e nail designer com lembrete e Pix",
     metaDescription:
-      "Agenda online para lash e nail designer: link na bio, sinal via Pix contra faltas, lembrete de manutenção no WhatsApp e ficha técnica. Desde R$ 49 por mês.",
+      "Agenda online para lash e nail designer: link na bio, sinal via Pix contra faltas, lembrete de manutenção no WhatsApp e ficha técnica. Desde R$ 39,90 por mês.",
     h1: "Agenda para lash e nail designers que lembra a manutenção por você",
     keyword: "agenda para lash designer",
     resumo:
-      "A Cygna é uma agenda online para lash e nail designers que atendem sozinhas ou em dupla: a cliente marca pelo link na bio, paga o sinal via Pix para reservar o horário e recebe no WhatsApp o lembrete da próxima manutenção. Tudo funciona pelo celular, a partir de R$ 49 por mês.",
+      "A Cygna é uma agenda online para lash e nail designers que atendem sozinhas ou em dupla: a cliente marca pelo link na bio, paga o sinal via Pix para reservar o horário e recebe no WhatsApp o lembrete da próxima manutenção. Tudo funciona pelo celular, a partir de R$ 39,90 por mês.",
     imagem: "/images/para-quem/lash-designers.webp",
     imagemAlt: "Lash designer aplicando extensão de cílios fio a fio em uma cliente",
     audiencia: "Lash designers e nail designers autônomas",
     categoria: "Agenda online para profissionais autônomas de beleza",
     numeros: [
-      { valor: "R$ 49", rotulo: "por mês no plano Autônoma, para 1 profissional" },
+      { valor: "R$ 39,90", rotulo: "por mês no plano Autônoma, para 1 profissional" },
       { valor: "5 min", rotulo: "para cadastrar os serviços e publicar o link na bio" },
       { valor: "100%", rotulo: "pelo celular, sem instalar nada" },
       { valor: "14 dias", rotulo: "de teste grátis, sem cartão de crédito" },
@@ -412,11 +412,11 @@ export const SEGMENTOS: Segmento[] = [
     ],
     plano: "autonoma",
     planoMotivo:
-      "O plano Autônoma cobre uma profissional com agenda online, link na bio, lembretes no WhatsApp, ficha de clientes e financeiro básico. Para cobrar sinal via Pix ou dividir o espaço com uma parceira, o plano Studio sai por R$ 99.",
+      "O plano Autônoma cobre uma profissional com agenda online, link na bio, lembretes no WhatsApp, ficha de clientes e financeiro básico. Para cobrar sinal via Pix ou dividir o espaço com uma parceira, o plano Studio sai por R$ 99,90.",
     faq: [
       {
         q: "Qual a melhor agenda para lash designer que atende sozinha?",
-        a: "É uma agenda que funcione pelo celular, tenha link na bio e lembre a cliente da manutenção sem você digitar nada. A Cygna faz isso no plano Autônoma, por R$ 49 por mês, com lembretes no WhatsApp e ficha técnica de cada cliente. Dá para testar 14 dias grátis.",
+        a: "É uma agenda que funcione pelo celular, tenha link na bio e lembre a cliente da manutenção sem você digitar nada. A Cygna faz isso no plano Autônoma, por R$ 39,90 por mês, com lembretes no WhatsApp e ficha técnica de cada cliente. Dá para testar 14 dias grátis.",
       },
       {
         q: "Como cobrar sinal de agendamento de cílios e unhas?",

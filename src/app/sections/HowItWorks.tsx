@@ -83,25 +83,52 @@ export default function HowItWorks() {
   );
 
   return (
-    <section ref={root} className="px-3 sm:px-4 ">
+    <section ref={root} className="px-3 sm:px-4 mt-20">
       <div className="mx-auto max-w-6xl rounded-3xl bg-white px-6 py-14 sm:px-10 sm:py-20">
         <div className="how-head mx-auto max-w-2xl text-center">
           <GradientText className="text-[14px] font-semibold tracking-wide">
             Como funciona
           </GradientText>
-          <StrokeTitle
-            className="mt-5 t-display"
-          >
-            Do cadastro à agenda cheia em <span className="accent-italic">três passos</span>
+          <StrokeTitle className="mt-5 t-display">
+            Do cadastro à agenda cheia em{" "}
+            <span className="accent-italic">três passos</span>
           </StrokeTitle>
         </div>
 
         {/* Desktop: wave + nodes share one aspect-locked box so they stay aligned */}
-        <div className="how-wave relative mt-16 hidden aspect-[10/1] w-full md:block" aria-hidden="true">
-          <svg viewBox="0 0 1200 120" className="absolute inset-0 h-full w-full overflow-visible">
-            <path d={WAVE} fill="none" stroke="#F3D6D2" strokeWidth="3" strokeDasharray="2 10" strokeLinecap="round" />
-            <path className="how-path" d={WAVE} fill="none" stroke="#4A3F8F" strokeWidth="3" strokeLinecap="round" />
-            <circle className="how-dot" r="9" fill="#4A3F8F" stroke="#fff" strokeWidth="4" cx="200" cy="60" />
+        <div
+          className="how-wave relative mt-16 hidden aspect-[10/1] w-full md:block"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 1200 120"
+            className="absolute inset-0 h-full w-full overflow-visible"
+          >
+            <path
+              d={WAVE}
+              fill="none"
+              stroke="#F3D6D2"
+              strokeWidth="3"
+              strokeDasharray="2 10"
+              strokeLinecap="round"
+            />
+            <path
+              className="how-path"
+              d={WAVE}
+              fill="none"
+              stroke="#4A3F8F"
+              strokeWidth="3"
+              strokeLinecap="round"
+            />
+            <circle
+              className="how-dot"
+              r="9"
+              fill="#4A3F8F"
+              stroke="#fff"
+              strokeWidth="4"
+              cx="200"
+              cy="60"
+            />
           </svg>
           {STEPS.map((s, i) => (
             <span
@@ -119,16 +146,25 @@ export default function HowItWorks() {
         <div className="how-steps mt-10 hidden grid-cols-3 gap-8 text-center md:grid">
           {STEPS.map((s, i) => (
             <div key={s.title} className="how-step">
-              <span className="text-[13px] font-medium text-iris">Passo {i + 1}</span>
-              <h3 className="mt-2 text-[22px] font-semibold tracking-tight">{s.title}</h3>
-              <p className="mx-auto mt-2 max-w-xs text-[15px] leading-relaxed text-tinta/70">{s.text}</p>
+              <span className="text-[13px] font-medium text-iris">
+                Passo {i + 1}
+              </span>
+              <h3 className="mt-2 text-[22px] font-semibold tracking-tight">
+                {s.title}
+              </h3>
+              <p className="mx-auto mt-2 max-w-xs text-[15px] leading-relaxed text-tinta/70">
+                {s.text}
+              </p>
             </div>
           ))}
         </div>
 
         {/* Mobile: vertical timeline */}
         <ol className="how-mobile relative mt-12 flex flex-col gap-10 pl-16 md:hidden">
-          <span className="absolute bottom-7 left-[27px] top-7 w-[2px] bg-rose" aria-hidden="true">
+          <span
+            className="absolute bottom-7 left-[27px] top-7 w-[2px] bg-rose"
+            aria-hidden="true"
+          >
             <span className="how-line block h-full w-full origin-top bg-iris" />
           </span>
           {STEPS.map((s, i) => (
@@ -136,9 +172,15 @@ export default function HowItWorks() {
               <span className="absolute -left-16 top-0 flex h-14 w-14 items-center justify-center rounded-full bg-iris text-white">
                 <s.icon className="h-6 w-6" />
               </span>
-              <span className="text-[13px] font-medium text-iris">Passo {i + 1}</span>
-              <h3 className="mt-1 text-[20px] font-semibold tracking-tight">{s.title}</h3>
-              <p className="mt-1.5 text-[15px] leading-relaxed text-tinta/70">{s.text}</p>
+              <span className="text-[13px] font-medium text-iris">
+                Passo {i + 1}
+              </span>
+              <h3 className="mt-1 text-[20px] font-semibold tracking-tight">
+                {s.title}
+              </h3>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-tinta/70">
+                {s.text}
+              </p>
             </li>
           ))}
         </ol>

@@ -3,38 +3,64 @@ import { Check, ChevronRight } from "lucide-react";
 import { gsap, Flip, useGSAP, MOTION, prefersReducedMotion } from "../lib/gsap";
 import StrokeTitle from "../components/StrokeTitle";
 import GradientText from "../components/GradientText";
+import { PLANOS, anualPorMes, brl, type PlanoId } from "../site/config";
 
 type Plan = {
   name: string;
   tagline: string;
+  /** Preço por mês (R$). */
   monthly: number;
+  /** Valor total do plano anual (R$) — 2 meses grátis. */
   annual: number;
   features: string[];
   featured?: boolean;
+};
+
+const price = (id: PlanoId) => {
+  const p = PLANOS.find((x) => x.id === id)!;
+  return { monthly: p.mensal, annual: p.anual };
 };
 
 const PLANS: Plan[] = [
   {
     name: "Autônoma",
     tagline: "Para quem atende sozinha",
-    monthly: 49,
-    annual: 39,
-    features: ["1 profissional", "Agenda online + link na bio", "Lembretes no WhatsApp", "Ficha de clientes", "Financeiro básico"],
+    ...price("autonoma"),
+    features: [
+      "1 profissional",
+      "Agenda online + link na bio",
+      "Lembretes no WhatsApp com mensagem pronta",
+      "Ficha de clientes e lista de espera",
+      "Vendas e recebimentos",
+      "Financeiro básico",
+    ],
   },
   {
     name: "Studio",
     tagline: "Para equipes pequenas",
-    monthly: 99,
-    annual: 79,
+    ...price("studio"),
     featured: true,
-    features: ["Até 5 profissionais", "Tudo do Autônoma", "Comissões automáticas", "Pacotes e fidelidade", "Sinal via Pix", "Relatórios por serviço"],
+    features: [
+      "Até 5 profissionais",
+      "Tudo do Autônoma",
+      "Comissões automáticas",
+      "Pacotes de sessões, com compra pelo link",
+      "Relatórios por serviço e profissional",
+      "Equipe com cargos e logins próprios",
+    ],
   },
   {
     name: "Clínica",
     tagline: "Para clínicas e salões maiores",
-    monthly: 199,
-    annual: 159,
-    features: ["Profissionais ilimitados", "Tudo do Studio", "Anamnese + fotos de evolução", "Salas e equipamentos", "Estoque de produtos", "Várias unidades"],
+    ...price("clinica"),
+    features: [
+      "Profissionais ilimitados",
+      "Tudo do Studio",
+      "Prontuário, anamnese, fotos de evolução e termos",
+      "Estoque com lotes, validade e fornecedores",
+      "Salas e equipamentos",
+      "Acesso restrito por página para cada cargo",
+    ],
   },
 ];
 
@@ -91,10 +117,10 @@ export default function Pricing() {
       pillState.current = null;
 
       gsap.utils.toArray<HTMLElement>(".price").forEach((el, i) => {
-        const target = annual ? PLANS[i].annual : PLANS[i].monthly;
+        const target = annual ? anualPorMes(PLANS[i].annual) : PLANS[i].monthly;
         const state = { v: shown.current[i] };
         const write = () => {
-          el.textContent = Math.round(state.v).toString();
+          el.textContent = brl(state.v);
         };
         if (reduced || state.v === target) {
           state.v = target;
@@ -132,7 +158,7 @@ export default function Pricing() {
           <div className="mt-8 inline-flex rounded-full bg-white p-1 shadow-sm" role="group" aria-label="Período de cobrança">
             {[
               { value: false, label: "Mensal" },
-              { value: true, label: "Anual", extra: "-20%" },
+              { value: true, label: "Anual", extra: "2 meses grátis" },
             ].map((opt) => {
               const active = annual === opt.value;
               return (
@@ -173,11 +199,11 @@ export default function Pricing() {
               <p className={`mt-1 text-[14px] ${p.featured ? "text-white/60" : "text-tinta/60"}`}>{p.tagline}</p>
               <div className="mt-6 flex items-baseline gap-1 overflow-hidden">
                 <span className="text-[18px] font-medium">R$</span>
-                <span className="price inline-block text-[56px] font-semibold leading-none tracking-tight">{p.monthly}</span>
+                <span className="price inline-block text-[44px] font-semibold leading-none tracking-tight sm:text-[52px]">{brl(p.monthly)}</span>
                 <span className={`text-[14px] ${p.featured ? "text-white/60" : "text-tinta/60"}`}>/mês</span>
               </div>
               <p className={`mt-1 h-5 text-[12px] ${p.featured ? "text-white/60" : "text-tinta/60"}`}>
-                {annual ? `cobrado anualmente · R$ ${p.annual * 12}/ano` : "cobrado mensalmente"}
+                {annual ? `R$ ${brl(p.annual)} cobrado por ano` : "cobrado mensalmente"}
               </p>
               <ul className="mt-6 flex flex-1 flex-col gap-3">
                 {p.features.map((f) => (

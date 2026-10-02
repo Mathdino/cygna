@@ -77,7 +77,7 @@ const PERSONAS: Persona[] = [
     icon: UserRound,
     title: "Autônomas",
     text: "Comece sozinha, pelo celular, e cresça sem trocar de sistema.",
-    bullets: ["Tudo pelo celular", "Link na bio em 5 minutos", "Plano a partir de R$ 49"],
+    bullets: ["Tudo pelo celular", "Link na bio em 5 minutos", "Plano a partir de R$ 39,90"],
     next: { time: "18:00", service: "Pé e mão", client: "Fernanda O." },
     tone: "from-rose to-perola",
     image: `${IMG}/autonomas.webp`,

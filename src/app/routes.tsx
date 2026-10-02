@@ -70,7 +70,7 @@ const home: Route = {
   llms: {
     secao: "Páginas",
     titulo: "Início",
-    descricao: "Visão geral do sistema: agenda online, lembretes no WhatsApp, anamnese, financeiro, planos a partir de R$ 49 e perguntas frequentes.",
+    descricao: "Visão geral do sistema: agenda online, lembretes no WhatsApp, anamnese, financeiro, planos a partir de R$ 39,90 e perguntas frequentes.",
   },
   modificado: HOJE,
 };
