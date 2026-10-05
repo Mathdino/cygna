@@ -87,7 +87,7 @@ export type SiteConfig = typeof SITE;
 export const PLANOS = [
   {
     id: "autonoma",
-    nome: "Autônoma",
+    nome: "Solo",
     mensal: 39.9,
     anual: 399.9,
     resumo: "1 profissional, agenda online com link na bio, lembretes no WhatsApp com mensagem pronta, ficha de clientes, lista de espera, vendas e financeiro básico.",
@@ -101,7 +101,7 @@ export const PLANOS = [
   },
   {
     id: "clinica",
-    nome: "Clínica",
+    nome: "Premium",
     mensal: 219.9,
     anual: 2190.9,
     resumo: "Profissionais ilimitados, prontuário com anamnese, fotos de evolução e termos, estoque com lotes e validade, salas e equipamentos e acesso restrito por cargo.",

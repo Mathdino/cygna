@@ -72,7 +72,7 @@ export const SEGMENTOS: Segmento[] = [
     audiencia: "Clínicas de estética facial e corporal",
     categoria: "Software de gestão para clínica de estética",
     numeros: [
-      { valor: "R$ 219,90", rotulo: "por mês no plano Clínica, com profissionais ilimitados" },
+      { valor: "R$ 219,90", rotulo: "por mês no plano Premium, com profissionais ilimitados" },
       { valor: "1 dia", rotulo: "antes do horário sai o lembrete com botão de confirmar" },
       { valor: "14 dias", rotulo: "de teste grátis, sem cartão de crédito" },
       { valor: "0", rotulo: "fidelidade: cancela pelo painel quando quiser" },
@@ -90,7 +90,7 @@ export const SEGMENTOS: Segmento[] = [
       {
         tipo: "lista",
         titulo: "Recursos da Cygna pensados para clínica",
-        intro: "Estes recursos fazem parte do plano Clínica e resolvem problemas que um salão ou uma profissional autônoma dificilmente têm.",
+        intro: "Estes recursos fazem parte do plano Premium e resolvem problemas que um salão ou uma profissional autônoma dificilmente têm.",
         itens: [
           {
             titulo: "Anamnese digital assinada no celular",
@@ -155,11 +155,11 @@ export const SEGMENTOS: Segmento[] = [
     ],
     plano: "clinica",
     planoMotivo:
-      "O plano Clínica é o único que inclui anamnese com fotos de evolução, salas e equipamentos, estoque de produtos e várias unidades, que são os recursos que uma clínica usa todo dia.",
+      "O plano Premium é o único que inclui anamnese com fotos de evolução, salas e equipamentos, estoque de produtos e várias unidades, que são os recursos que uma clínica usa todo dia.",
     faq: [
       {
         q: "Qual o melhor sistema para clínica de estética pequena?",
-        a: "Para clínica pequena, o ideal é um sistema que junte agenda, anamnese e pacotes sem exigir instalação. A Cygna funciona no navegador, custa R$ 219,90 por mês no plano Clínica com profissionais ilimitados e pode ser testada por 14 dias grátis, sem cartão e sem fidelidade.",
+        a: "Para clínica pequena, o ideal é um sistema que junte agenda, anamnese e pacotes sem exigir instalação. A Cygna funciona no navegador, custa R$ 219,90 por mês no plano Premium com profissionais ilimitados e pode ser testada por 14 dias grátis, sem cartão e sem fidelidade.",
       },
       {
         q: "A anamnese digital tem validade como a de papel?",
@@ -221,7 +221,7 @@ export const SEGMENTOS: Segmento[] = [
       {
         tipo: "lista",
         titulo: "Recursos da Cygna para salão de beleza",
-        intro: "O plano Studio foi desenhado para equipes de até cinco profissionais. Salões maiores ou com mais de uma unidade usam o plano Clínica.",
+        intro: "O plano Studio foi desenhado para equipes de até cinco profissionais. Salões maiores ou com mais de uma unidade usam o plano Premium.",
         itens: [
           {
             titulo: "Agenda por profissional",
@@ -283,7 +283,7 @@ export const SEGMENTOS: Segmento[] = [
     ],
     plano: "studio",
     planoMotivo:
-      "O plano Studio atende salões de até 5 profissionais com comissões automáticas, pacotes, sinal via Pix e relatórios por serviço. Acima disso ou com mais de uma unidade, o plano Clínica libera profissionais ilimitados.",
+      "O plano Studio atende salões de até 5 profissionais com comissões automáticas, pacotes, sinal via Pix e relatórios por serviço. Acima disso ou com mais de uma unidade, o plano Premium libera profissionais ilimitados.",
     faq: [
       {
         q: "Qual o melhor sistema para salão de beleza com vários profissionais?",
@@ -331,7 +331,7 @@ export const SEGMENTOS: Segmento[] = [
     audiencia: "Lash designers e nail designers autônomas",
     categoria: "Agenda online para profissionais autônomas de beleza",
     numeros: [
-      { valor: "R$ 39,90", rotulo: "por mês no plano Autônoma, para 1 profissional" },
+      { valor: "R$ 39,90", rotulo: "por mês no plano Solo, para 1 profissional" },
       { valor: "5 min", rotulo: "para cadastrar os serviços e publicar o link na bio" },
       { valor: "100%", rotulo: "pelo celular, sem instalar nada" },
       { valor: "14 dias", rotulo: "de teste grátis, sem cartão de crédito" },
@@ -349,7 +349,7 @@ export const SEGMENTOS: Segmento[] = [
       {
         tipo: "lista",
         titulo: "Recursos da Cygna para quem atende sozinha",
-        intro: "O plano Autônoma cobre uma profissional. O sinal via Pix e as agendas separadas para quem divide o espaço com uma parceira começam no plano Studio.",
+        intro: "O plano Solo cobre uma profissional. O sinal via Pix e as agendas separadas para quem divide o espaço com uma parceira começam no plano Studio.",
         itens: [
           {
             titulo: "Link na bio em 5 minutos",
@@ -412,11 +412,11 @@ export const SEGMENTOS: Segmento[] = [
     ],
     plano: "autonoma",
     planoMotivo:
-      "O plano Autônoma cobre uma profissional com agenda online, link na bio, lembretes no WhatsApp, ficha de clientes e financeiro básico. Para cobrar sinal via Pix ou dividir o espaço com uma parceira, o plano Studio sai por R$ 99,90.",
+      "O plano Solo cobre uma profissional com agenda online, link na bio, lembretes no WhatsApp, ficha de clientes e financeiro básico. Para cobrar sinal via Pix ou dividir o espaço com uma parceira, o plano Studio sai por R$ 99,90.",
     faq: [
       {
         q: "Qual a melhor agenda para lash designer que atende sozinha?",
-        a: "É uma agenda que funcione pelo celular, tenha link na bio e lembre a cliente da manutenção sem você digitar nada. A Cygna faz isso no plano Autônoma, por R$ 39,90 por mês, com lembretes no WhatsApp e ficha técnica de cada cliente. Dá para testar 14 dias grátis.",
+        a: "É uma agenda que funcione pelo celular, tenha link na bio e lembre a cliente da manutenção sem você digitar nada. A Cygna faz isso no plano Solo, por R$ 39,90 por mês, com lembretes no WhatsApp e ficha técnica de cada cliente. Dá para testar 14 dias grátis.",
       },
       {
         q: "Como cobrar sinal de agendamento de cílios e unhas?",

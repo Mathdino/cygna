@@ -90,11 +90,11 @@ export const HUB_SEGMENTOS = {
   faq: [
     {
       q: "Qual plano da Cygna escolher para o meu negócio?",
-      a: "Depende do tamanho da equipe e dos recursos. Quem atende sozinha começa no Autônoma, por R$ 39,90 por mês. Equipes de até 5 profissionais usam o Studio, por R$ 99,90. Clínicas com prontuário, salas, estoque ou equipe grande usam o Clínica, por R$ 219,90. No plano anual, 2 meses saem grátis. Todos têm 14 dias grátis.",
+      a: "Depende do tamanho da equipe e dos recursos. Quem atende sozinha começa no Solo, por R$ 39,90 por mês. Equipes de até 5 profissionais usam o Studio, por R$ 99,90. Clínicas com prontuário, salas, estoque ou equipe grande usam o Premium, por R$ 219,90. No plano anual, 2 meses saem grátis. Todos têm 14 dias grátis.",
     },
     {
       q: "Posso mudar de plano depois de começar?",
-      a: "Pode. A troca de plano é feita pelo painel e os dados continuam os mesmos: clientes, histórico, fichas e agenda. É comum começar no Autônoma e subir para o Studio quando entra uma segunda profissional, sem precisar migrar nada nem trocar de sistema.",
+      a: "Pode. A troca de plano é feita pelo painel e os dados continuam os mesmos: clientes, histórico, fichas e agenda. É comum começar no Solo e subir para o Studio quando entra uma segunda profissional, sem precisar migrar nada nem trocar de sistema.",
     },
     {
       q: "A Cygna atende barbearias, spas e designers de sobrancelha?",
@@ -102,7 +102,7 @@ export const HUB_SEGMENTOS = {
     },
     {
       q: "Preciso de um sistema diferente se tenho clínica e salão juntos?",
-      a: "Não. No plano Clínica, cada profissional tem a própria agenda e os serviços dela, então tratamentos estéticos com anamnese e serviços de salão com comissão convivem no mesmo painel, com o caixa unificado e relatórios separados por serviço e por profissional.",
+      a: "Não. No plano Premium, cada profissional tem a própria agenda e os serviços dela, então tratamentos estéticos com anamnese e serviços de salão com comissão convivem no mesmo painel, com o caixa unificado e relatórios separados por serviço e por profissional.",
     },
   ],
 } as const;
@@ -113,7 +113,7 @@ const COMPARATIVO = {
     ["Quem decide", "Dona ou responsável técnica da clínica", "Dono do salão ou gerente", "A própria profissional"],
     ["Dor principal", "Controlar protocolo, pacote e anamnese", "Coordenar equipe, comissão e caixa", "Trazer a cliente de volta na manutenção"],
     ["Recurso-chave", "Anamnese digital e saldo de sessões", "Agenda por profissional e comissão", "Lembrete de retorno e sinal via Pix"],
-    ["Plano indicado", "Clínica · R$ 219,90/mês", "Studio · R$ 99,90/mês", "Autônoma · R$ 39,90/mês"],
+    ["Plano indicado", "Premium · R$ 219,90/mês", "Studio · R$ 99,90/mês", "Solo · R$ 39,90/mês"],
   ],
 };
 

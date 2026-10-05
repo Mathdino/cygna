@@ -23,7 +23,7 @@ const price = (id: PlanoId) => {
 
 const PLANS: Plan[] = [
   {
-    name: "Autônoma",
+    name: "Solo",
     tagline: "Para quem atende sozinha",
     ...price("autonoma"),
     features: [
@@ -42,7 +42,7 @@ const PLANS: Plan[] = [
     featured: true,
     features: [
       "Até 5 profissionais",
-      "Tudo do Autônoma",
+      "Tudo do Solo",
       "Comissões automáticas",
       "Pacotes de sessões, com compra pelo link",
       "Relatórios por serviço e profissional",
@@ -50,7 +50,7 @@ const PLANS: Plan[] = [
     ],
   },
   {
-    name: "Clínica",
+    name: "Premium",
     tagline: "Para clínicas e salões maiores",
     ...price("clinica"),
     features: [
