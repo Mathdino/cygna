@@ -79,14 +79,17 @@ export function renderHead(meta: PageMeta): string {
 }
 
 /**
- * Consent Mode v2 + GA4. O padrão "negado" entra no dataLayer ANTES do gtag.js;
- * o gtag.js só é baixado em produção (nunca em localhost — GUIA-NOVO-PROJETO §1).
+ * Consent Mode v2 + GA4. O padrão "negado" entra no dataLayer ANTES do gtag.js.
+ * O gtag.js vai como <script async src> estático no <head> — é o formato que o
+ * Search Console procura na verificação "Google Analytics" (e o Bing importa
+ * a propriedade do GSC). Em localhost o config não roda, então nada é medido
+ * (GUIA-NOVO-PROJETO §1).
  */
 export function analyticsTags(): string {
   const id = SITE.analytics.ga4;
   if (!id) return "";
   return [
+    `<script async src="https://www.googletagmanager.com/gtag/js?id=${id}"></script>`,
     `<script>${consentBootstrapScript(id)}</script>`,
-    `<script>if(!/^(localhost|127\\.|0\\.0\\.0\\.0|\\[::1\\])/.test(location.hostname)){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=${id}";document.head.appendChild(s);}</script>`,
   ].join("\n    ");
 }

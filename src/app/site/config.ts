@@ -54,7 +54,7 @@ export const SITE = {
   /* Integrações — ID vazio = script/tag não é emitido. */
   analytics: {
     /** Google Analytics 4 (G-XXXXXXX). */
-    ga4: "",
+    ga4: "G-VDMGDFCCH4",
   },
   verification: {
     /** Conteúdo da meta google-site-verification (Search Console, método "tag HTML"). */

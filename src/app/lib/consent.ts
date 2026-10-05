@@ -91,5 +91,6 @@ export function consentBootstrapScript(measurementId: string): string {
 gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});
 gtag('set','ads_data_redaction',true);
 try{var m=document.cookie.match(/(?:^|;\\s*)${CONSENT_COOKIE}=([^;]+)/);if(m){var c=JSON.parse(decodeURIComponent(m[1]));if(c.v===${CONSENT_VERSION}){var a=c.marketing?'granted':'denied';gtag('consent','update',{analytics_storage:c.analytics?'granted':'denied',ad_storage:a,ad_user_data:a,ad_personalization:a});}}}catch(e){}
-gtag('js',new Date());gtag('config','${measurementId}');`;
+gtag('js',new Date());
+if(!/^(localhost|127\\.|0\\.0\\.0\\.0|\\[::1\\])/.test(location.hostname)){gtag('config','${measurementId}');}`;
 }
