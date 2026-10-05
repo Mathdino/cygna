@@ -13,11 +13,11 @@ type Social = Partial<Record<"instagram" | "linkedin" | "facebook" | "youtube", 
 
 export const SITE = {
   name: "Cygna",
-  /** Domínio de produção, sem barra no fim. TODO: confirmar o domínio definitivo. */
-  url: "https://www.cygna.com.br",
+  /** Domínio de produção, sem barra no fim. Sem www: a Vercel redireciona www → cygna.com.br. */
+  url: "https://cygna.com.br",
   locale: "pt_BR",
   language: "pt-BR",
-  tagline: "A agenda que trabalha em silêncio",
+  tagline: "A plataforma de agendamentos para o seu negócio de beleza",
   description:
     "Cygna é o sistema de gestão e agendamento online para clínicas de estética, salões de beleza, lash e nail designers: agenda 24h, WhatsApp, Pix e financeiro.",
   ogImage: "/og/cygna-og.png",
@@ -37,7 +37,7 @@ export const SITE = {
      Para ativar uma rede, descomente a linha e coloque a URL completa do perfil.
      TODO: instagram/linkedin estão com URL provisória — confirmar os perfis reais antes de publicar. */
   social: {
-    instagram: "https://www.instagram.com/cygna",
+    instagram: "https://www.instagram.com/cygna.app",
     linkedin: "https://www.linkedin.com/company/cygna",
     // facebook: "https://www.facebook.com/cygna",
     // youtube: "https://www.youtube.com/@cygna",
