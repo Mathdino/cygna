@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { ChevronRight } from "lucide-react";
 import { Symbol } from "./Logo";
 import { gsap, ScrollTrigger, useGSAP, prefersReducedMotion } from "../lib/gsap";
-import { scrollToId } from "../lib/scroll";
+import { CADASTRO_URL } from "../site/config";
 
 /** Fixed UI that lives outside the ScrollSmoother content (fixed elements can't be transformed parents' children). */
 export default function Overlays() {
@@ -54,11 +54,7 @@ export default function Overlays() {
             <strong className="font-semibold">14 dias grátis</strong>
           </span>
           <a
-            href="#planos"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToId("planos");
-            }}
+            href={CADASTRO_URL}
             className="btn inline-flex shrink-0 items-center gap-1.5 rounded-full bg-iris py-2 pl-4 pr-2 text-[13px] font-medium text-white"
           >
             Começar

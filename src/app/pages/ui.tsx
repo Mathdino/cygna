@@ -8,7 +8,7 @@ import GradientText from "../components/GradientText";
 import { Glyph } from "../components/Logo";
 import type { Bloco } from "../data/segmentos";
 import type { Trilha } from "../site/schema";
-import { TESTE_GRATIS_DIAS } from "../site/config";
+import { CADASTRO_URL, TESTE_GRATIS_DIAS } from "../site/config";
 
 /* =============================================================================
    Peças das páginas internas. Tudo aqui renderiza no servidor (prerender) e
@@ -165,7 +165,7 @@ export function HeroActions() {
   return (
     <div className="mt-8 flex flex-wrap items-center gap-3">
       <a
-        href="/#planos"
+        href={CADASTRO_URL}
         className="btn group inline-flex items-center gap-3 rounded-full bg-tinta py-2 pl-6 pr-2 text-[14px] font-medium text-white transition-transform hover:scale-[1.02]"
       >
         Testar grátis por {TESTE_GRATIS_DIAS} dias
@@ -374,7 +374,7 @@ export function CtaFinal({ titulo = "Sua agenda organizada ainda esta semana", t
           {texto ?? `${TESTE_GRATIS_DIAS} dias grátis em qualquer plano. Sem cartão, sem fidelidade e com ajuda do nosso time na migração.`}
         </p>
         <div className="relative mt-8 flex flex-wrap justify-center gap-3">
-          <a href="/#planos" className="btn inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-medium text-tinta transition-transform hover:scale-[1.02]">
+          <a href={CADASTRO_URL} className="btn inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-medium text-tinta transition-transform hover:scale-[1.02]">
             Começar teste grátis
             <ChevronRight className="h-4 w-4" />
           </a>

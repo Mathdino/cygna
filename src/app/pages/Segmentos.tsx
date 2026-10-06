@@ -1,7 +1,7 @@
 import { ArrowRight, Check, ChevronRight } from "lucide-react";
 import { SEGMENTOS, segmentoPath, type Segmento } from "../data/segmentos";
 import { getPost, postPath } from "../data/blog";
-import { PLANOS, TESTE_GRATIS_DIAS, brl } from "../site/config";
+import { CADASTRO_URL, PLANOS, TESTE_GRATIS_DIAS, brl } from "../site/config";
 import { Blocos, CtaFinal, FaqList, Numeros, PageHero, PageShell, Relacionados, Tabela } from "./ui";
 
 /* ─── /segmentos/{slug} ───────────────────────────────────────────────────── */
@@ -53,7 +53,7 @@ export function SegmentoPage({ seg }: { seg: Segmento }) {
               {plano.resumo}
             </p>
             <a
-              href="/#planos"
+              href={CADASTRO_URL}
               className="btn mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-iris py-3 text-[14px] font-medium text-white transition-transform hover:scale-[1.01]"
             >
               Testar {TESTE_GRATIS_DIAS} dias grátis

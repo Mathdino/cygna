@@ -3,6 +3,7 @@ import { ArrowRight, ChevronDown, ChevronRight, LogIn, Menu, X } from "lucide-re
 import { gsap, ScrollTrigger, useGSAP, MOTION, prefersReducedMotion } from "../lib/gsap";
 import { handleNavClick } from "../lib/nav";
 import { SEGMENTOS, segmentoPath } from "../data/segmentos";
+import { CADASTRO_URL } from "../site/config";
 import { Wordmark } from "./Logo";
 
 type Item = {
@@ -29,7 +30,6 @@ const ITEMS: Item[] = [
 
 const SUB = SEGMENTOS.map((s) => ({ label: s.label, descricao: s.menuDescricao, href: segmentoPath(s), Icon: s.icon }));
 
-const LOGIN_URL = "#"; // TODO: URL do painel (app) quando existir
 
 /**
  * Fixed glass header, rendered outside the ScrollSmoother content.
@@ -332,7 +332,7 @@ export default function Navbar({ path = "/" }: { path?: string }) {
           <div className="flex flex-1 items-center justify-end gap-2 sm:gap-3">
             {/* The one highlighted action in the bar */}
             <a
-              href={LOGIN_URL}
+              href={CADASTRO_URL}
               className="btn nav-login group inline-flex shrink-0 items-center gap-2 rounded-full bg-iris py-2 pl-4 pr-2 text-[14px] font-medium text-white shadow-[0_8px_20px_-8px_rgba(74,63,143,0.7)] transition-transform hover:scale-[1.03] lg:py-2.5 lg:pl-5 lg:text-[15px]"
             >
               Entrar

@@ -3,7 +3,7 @@ import { Check, ChevronRight } from "lucide-react";
 import { gsap, Flip, useGSAP, MOTION, prefersReducedMotion } from "../lib/gsap";
 import StrokeTitle from "../components/StrokeTitle";
 import GradientText from "../components/GradientText";
-import { PLANOS, anualPorMes, brl, type PlanoId } from "../site/config";
+import { CADASTRO_URL, PLANOS, anualPorMes, brl, type PlanoId } from "../site/config";
 
 type Plan = {
   name: string;
@@ -220,7 +220,7 @@ export default function Pricing() {
                 ))}
               </ul>
               <a
-                href="#"
+                href={CADASTRO_URL}
                 className={`btn mt-8 inline-flex items-center justify-center gap-2 rounded-full py-3 text-[14px] font-medium transition-transform hover:scale-[1.02] ${
                   p.featured ? "bg-perola text-tinta" : "bg-iris text-white"
                 }`}

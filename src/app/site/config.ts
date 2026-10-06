@@ -30,7 +30,7 @@ export const SITE = {
     email: "contato@cygna.com.br",
     /** Só dígitos, com DDI e DDD (ex.: 5511999999999). Descomente e preencha para ligar o
         WhatsApp no rodapé, no contato (card + envio do formulário), no schema e no llms.txt. */
-    // whatsapp: "5511999999999",
+    whatsapp: "5511910064302",
   } as Contato,
 
   /* Redes sociais — aparecem no rodapé, na página de contato e no schema (sameAs).
@@ -117,3 +117,6 @@ export const anualPorMes = (anual: number) => Math.round(Math.round(anual * 100)
 export type PlanoId = (typeof PLANOS)[number]["id"];
 
 export const TESTE_GRATIS_DIAS = 14;
+
+/** Cadastro / teste grátis no app (todo botão de "Entrar" e "Testar grátis" aponta para cá). */
+export const CADASTRO_URL = "https://cygna-system.vercel.app/cadastro";

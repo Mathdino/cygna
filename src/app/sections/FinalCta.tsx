@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Check, ChevronRight, MessageCircle } from "lucide-react";
 import { gsap, useGSAP, MOTION, FINE_POINTER } from "../lib/gsap";
-import { scrollToId } from "../lib/scroll";
+import { CADASTRO_URL, SITE } from "../site/config";
 import StrokeTitle from "../components/StrokeTitle";
 import GradientText, { GRADIENT_DARK } from "../components/GradientText";
 
@@ -208,11 +208,7 @@ export default function FinalCta() {
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="#planos"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToId("planos");
-              }}
+              href={CADASTRO_URL}
               className="btn magnetic inline-flex items-center gap-3 rounded-full bg-bico py-3 pl-8 pr-3 text-[15px] font-semibold text-tinta shadow-[0_20px_40px_-12px_rgba(255,122,89,0.6)]"
             >
               <span className="magnetic-label inline-flex items-center gap-3">
@@ -223,7 +219,9 @@ export default function FinalCta() {
               </span>
             </a>
             <a
-              href="#"
+              href={`https://wa.me/${SITE.contact.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn inline-flex items-center gap-2 rounded-full border border-perola/25 px-6 py-3 text-[15px] font-medium text-perola transition-colors hover:bg-perola/10"
             >
               <MessageCircle className="h-4 w-4" />

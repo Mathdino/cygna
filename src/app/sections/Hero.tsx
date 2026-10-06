@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 import DashboardPreview from "../components/DashboardPreview";
 import BlinkingSquares from "../components/BlinkingSquares";
 import { gsap, SplitText, useGSAP, MOTION } from "../lib/gsap";
-import { scrollToId } from "../lib/scroll";
+import { CADASTRO_URL } from "../site/config";
 import GradientText from "../components/GradientText";
 
 const WIDE = "(min-width: 768px)";
@@ -114,11 +114,7 @@ export default function Hero() {
           </p>
 
           <a
-            href="#planos"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToId("planos");
-            }}
+            href={CADASTRO_URL}
             className="btn hero-cta group mt-6 inline-flex items-center gap-3 rounded-full bg-tinta py-2 pl-6 pr-2 text-[14px] font-medium text-white transition-transform hover:scale-[1.02] sm:mt-8 sm:py-2.5 sm:pl-7"
           >
             Testar grátis por 14 dias
