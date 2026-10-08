@@ -128,6 +128,7 @@ export function EmpresaPage() {
 
       <Relacionados
         titulo="Para quem trabalhamos"
+        colunas={4}
         itens={SEGMENTOS.map((s) => ({ titulo: s.label, href: segmentoPath(s), texto: s.metaDescription, selo: "Segmento" }))}
       />
 

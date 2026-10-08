@@ -337,13 +337,22 @@ export function FaqList({ itens, titulo = "Perguntas frequentes", intro, id = "p
   );
 }
 
-export function Relacionados({ titulo, itens }: { titulo: string; itens: { titulo: string; href: string; texto?: string; selo?: string }[] }) {
+export function Relacionados({
+  titulo,
+  itens,
+  colunas = 3,
+}: {
+  titulo: string;
+  itens: { titulo: string; href: string; texto?: string; selo?: string }[];
+  /** Cards por linha no desktop. */
+  colunas?: 3 | 4;
+}) {
   if (!itens.length) return null;
   return (
     <section className="px-3 pt-20 sm:px-4 sm:pt-24">
       <div className="mx-auto max-w-6xl">
         <h2 data-reveal className="t-title">{titulo}</h2>
-        <ul className="mt-8 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+        <ul className={`mt-8 grid grid-cols-1 gap-3 md:grid-cols-2 ${colunas === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}>
           {itens.map((it) => (
             <li key={it.href} data-reveal>
               <a href={it.href} className="group flex h-full flex-col rounded-3xl border border-tinta/10 bg-white p-6 transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-iris/40">
