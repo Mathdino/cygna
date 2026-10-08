@@ -83,10 +83,10 @@ export function SegmentoPage({ seg }: { seg: Segmento }) {
 export const HUB_SEGMENTOS = {
   metaTitle: "Sistema para negócios de beleza por segmento",
   metaDescription:
-    "Compare como a Cygna atende clínicas de estética, salões de beleza e lash e nail designers: quem decide, a dor principal, o recurso-chave e o plano indicado.",
+    "Compare como a Cygna atende clínicas de estética, salões, barbearias e lash e nail designers: dor principal, recurso-chave e plano indicado de cada um.",
   h1: "Um sistema de gestão para cada tipo de negócio de beleza",
   resumo:
-    "A Cygna atende três perfis de negócio de beleza com necessidades diferentes: clínicas de estética, que vivem de protocolos e anamnese; salões de beleza, que coordenam equipe e comissão; e lash e nail designers, que dependem do retorno de manutenção. Cada perfil tem uma página própria e um plano indicado.",
+    "A Cygna atende quatro perfis de negócio de beleza com necessidades diferentes: clínicas de estética, que vivem de protocolos e anamnese; salões de beleza, que coordenam equipe e comissão; barbearias, que vivem de giro rápido e retorno frequente; e lash e nail designers, que dependem da manutenção. Cada perfil tem uma página própria e um plano indicado.",
   faq: [
     {
       q: "Qual plano da Cygna escolher para o meu negócio?",
@@ -97,8 +97,8 @@ export const HUB_SEGMENTOS = {
       a: "Pode. A troca de plano é feita pelo painel e os dados continuam os mesmos: clientes, histórico, fichas e agenda. É comum começar no Solo e subir para o Studio quando entra uma segunda profissional, sem precisar migrar nada nem trocar de sistema.",
     },
     {
-      q: "A Cygna atende barbearias, spas e designers de sobrancelha?",
-      a: "Atende. Os recursos de agenda, lembrete no WhatsApp, sinal via Pix e financeiro servem para qualquer negócio de beleza com horário marcado. As páginas de segmento detalham os três perfis mais comuns, mas barbearias, spas, micropigmentadoras e designers de sobrancelha usam os mesmos planos.",
+      q: "A Cygna atende spas, maquiadoras e designers de sobrancelha?",
+      a: "Atende. Os recursos de agenda, lembrete no WhatsApp, sinal via Pix e financeiro servem para qualquer negócio de beleza com horário marcado. As páginas de segmento detalham os quatro perfis mais comuns, mas spas, estúdios de depilação, maquiadoras, micropigmentadoras e designers de sobrancelha usam os mesmos planos.",
     },
     {
       q: "Preciso de um sistema diferente se tenho clínica e salão juntos?",
@@ -108,12 +108,12 @@ export const HUB_SEGMENTOS = {
 } as const;
 
 const COMPARATIVO = {
-  colunas: ["Critério", "Clínicas de estética", "Salões de beleza", "Lash e nail designers"],
+  colunas: ["Critério", "Clínicas de estética", "Salões de beleza", "Barbearias", "Lash e nail designers"],
   linhas: [
-    ["Quem decide", "Dona ou responsável técnica da clínica", "Dono do salão ou gerente", "A própria profissional"],
-    ["Dor principal", "Controlar protocolo, pacote e anamnese", "Coordenar equipe, comissão e caixa", "Trazer a cliente de volta na manutenção"],
-    ["Recurso-chave", "Anamnese digital e saldo de sessões", "Agenda por profissional e comissão", "Lembrete de retorno e sinal via Pix"],
-    ["Plano indicado", "Premium · R$ 219,90/mês", "Studio · R$ 99,90/mês", "Solo · R$ 39,90/mês"],
+    ["Quem decide", "Dona ou responsável técnica da clínica", "Dono do salão ou gerente", "Dono da barbearia ou barbeiro-chefe", "A própria profissional"],
+    ["Dor principal", "Controlar protocolo, pacote e anamnese", "Coordenar equipe, comissão e caixa", "Equilibrar agendamento, encaixe e giro da cadeira", "Trazer a cliente de volta na manutenção"],
+    ["Recurso-chave", "Anamnese digital e saldo de sessões", "Agenda por profissional e comissão", "Agenda por barbeiro e pacote mensal de cortes", "Lembrete de retorno e sinal via Pix"],
+    ["Plano indicado", "Premium · R$ 219,90/mês", "Studio · R$ 99,90/mês", "Studio · R$ 99,90/mês", "Solo · R$ 39,90/mês"],
   ],
 };
 
@@ -123,7 +123,7 @@ export function SegmentosHub() {
       <PageHero trilha={[{ nome: "Segmentos", path: "/segmentos" }]} selo="Segmentos" titulo={HUB_SEGMENTOS.h1} resumo={HUB_SEGMENTOS.resumo} />
 
       <section className="px-3 pt-4 sm:px-4">
-        <ul className="mx-auto grid max-w-6xl gap-3 md:grid-cols-3">
+        <ul className="mx-auto grid max-w-6xl grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4">
           {SEGMENTOS.map((s) => (
             <li key={s.slug} data-reveal>
               <a href={segmentoPath(s)} className="group flex h-full flex-col overflow-hidden rounded-3xl border border-tinta/10 bg-white transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-iris/40">

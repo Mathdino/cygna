@@ -153,6 +153,7 @@ const posts: Route[] = postsPublicados().map((p) => {
           palavras: contarPalavras(p),
           tags: p.tags,
         }),
+        schemaFaq(p.faq, path),
       ]),
     },
     render: () => <BlogPost post={p} />,

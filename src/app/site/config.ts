@@ -68,6 +68,7 @@ export const SITE = {
     "Sistema de agendamento online",
     "Software de gestão para clínica de estética",
     "Sistema para salão de beleza",
+    "Sistema para barbearia",
     "Agenda para lash designer",
     "Agenda para nail designer",
     "Lembrete de agendamento por WhatsApp",

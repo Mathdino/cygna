@@ -407,6 +407,14 @@ html {
 .prose-cygna li::marker {
   color: var(--primary);
 }
+.prose-cygna blockquote {
+  border-left: 3px solid var(--primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: color-mix(in srgb, var(--secondary) 55%, transparent);
+  padding: 1em 1.25em;
+  font-size: 16px;
+  color: var(--foreground);
+}
 
 /* FAQ <details>: some o triângulo nativo */
 .faq-details summary::-webkit-details-marker {

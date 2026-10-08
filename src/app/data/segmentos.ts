@@ -1,4 +1,4 @@
-import { Scissors, Sparkles, Eye, type LucideIcon } from "lucide-react";
+import { Crown, Scissors, Sparkles, Eye, type LucideIcon } from "lucide-react";
 import type { PlanoId } from "../site/config";
 
 /* =============================================================================
@@ -181,6 +181,12 @@ export const SEGMENTOS: Segmento[] = [
     relacionados: [
       { titulo: "Ficha de anamnese para estética: o que perguntar e como guardar", href: "/blog/ficha-de-anamnese-para-estetica-e-lgpd" },
       { titulo: "Como diminuir faltas com lembrete no WhatsApp e sinal via Pix", href: "/blog/como-reduzir-faltas-de-clientes-no-salao" },
+      { titulo: "Pacotes de sessões: como montar, precificar e controlar o saldo", href: "/blog/pacotes-de-sessoes-na-clinica-de-estetica" },
+      { titulo: "Controle de estoque na clínica: ficha técnica, lote e validade", href: "/blog/controle-de-estoque-na-clinica-de-estetica" },
+      { titulo: "Indicadores de gestão para clínica de estética", href: "/blog/indicadores-de-gestao-para-clinica-de-estetica" },
+      { titulo: "Agenda de spa e massagem: salas, terapeutas e pacotes", href: "/blog/agenda-de-spa-e-espaco-de-massagem" },
+      { titulo: "Como montar uma clínica de estética do zero", href: "/blog/como-montar-uma-clinica-de-estetica" },
+      { titulo: "Como atrair clientes para clínica de estética", href: "/blog/como-atrair-clientes-para-clinica-de-estetica" },
     ],
     atualizado: "2026-09-25",
   },
@@ -309,8 +315,150 @@ export const SEGMENTOS: Segmento[] = [
     relacionados: [
       { titulo: "Como reduzir faltas de clientes no salão com lembrete e sinal", href: "/blog/como-reduzir-faltas-de-clientes-no-salao" },
       { titulo: "Agenda de manutenção: como trazer a cliente de volta no prazo", href: "/blog/agenda-de-manutencao-de-cilios-e-unhas" },
+      { titulo: "Como calcular comissão no salão de beleza", href: "/blog/como-calcular-comissao-no-salao-de-beleza" },
+      { titulo: "Lei do Salão Parceiro: parceria, cota-parte e contrato", href: "/blog/lei-do-salao-parceiro-como-funciona" },
+      { titulo: "Como fidelizar clientes no salão de beleza", href: "/blog/como-fidelizar-clientes-no-salao-de-beleza" },
+      { titulo: "Fechamento de caixa no salão de beleza: passo a passo", href: "/blog/fechamento-de-caixa-no-salao-de-beleza" },
+      { titulo: "Como montar um salão de beleza do zero", href: "/blog/como-montar-um-salao-de-beleza" },
+      { titulo: "Marketing para salão de beleza: ideias e promoções", href: "/blog/marketing-para-salao-de-beleza" },
+      { titulo: "Planilha para salão de beleza: como montar e quando trocar", href: "/blog/planilha-para-salao-de-beleza" },
+      { titulo: "Como aumentar o faturamento do salão de beleza", href: "/blog/como-aumentar-o-faturamento-do-salao-de-beleza" },
     ],
     atualizado: "2026-09-25",
+  },
+
+  /* ════════════════════════════════════════════════════════════ BARBEARIAS ══ */
+  {
+    slug: "barbearias",
+    label: "Barbearias",
+    menuDescricao: "Agenda por barbeiro, encaixe e pacotes",
+    icon: Crown,
+    metaTitle: "Sistema para barbearia: agenda por barbeiro e comissão",
+    metaDescription:
+      "Sistema para barbearia com agenda online por barbeiro, encaixe sem fila, comissão automática, pacote mensal de cortes e lembrete no WhatsApp. 14 dias grátis.",
+    h1: "Sistema para barbearia: agenda por barbeiro, comissão e cliente de volta todo mês",
+    keyword: "sistema para barbearia",
+    resumo:
+      "A Cygna é um sistema para barbearia que coloca a agenda de cada barbeiro, os horários livres para encaixe, a comissão calculada por serviço e o caixa do dia na mesma tela. O cliente marca corte e barba pelo link, recebe lembrete no WhatsApp e pode comprar o pacote mensal de cortes, e no fim do dia cada barbeiro sabe quanto tem a receber.",
+    imagem: "/images/para-quem/barbearias.webp",
+    imagemAlt: "Barbeiro fazendo corte degradê em cliente na cadeira da barbearia",
+    audiencia: "Barbearias com equipe de barbeiros",
+    categoria: "Software de gestão para barbearia",
+    numeros: [
+      { valor: "R$ 99,90", rotulo: "por mês no plano Studio, com até 5 barbeiros" },
+      { valor: "24h", rotulo: "de agenda aberta pelo link, inclusive fora do expediente" },
+      { valor: "1 toque", rotulo: "para o cliente confirmar ou remarcar pelo WhatsApp" },
+      { valor: "14 dias", rotulo: "de teste grátis, sem cartão de crédito" },
+    ],
+    blocos: [
+      {
+        tipo: "texto",
+        titulo: "Barbearia vive de giro e de cliente que volta",
+        paragrafos: [
+          "Uma barbearia funciona em outro ritmo que um salão. Os serviços são curtos, corte em 30 a 45 minutos, barba em 20 a 30, e o cliente volta em intervalos curtos: quem mantém o degradê em dia aparece a cada duas ou três semanas. Isso significa muitos atendimentos por dia, pouca margem para horário vazio e uma cadeira parada que custa caro, porque o sábado lotado não compensa a terça à tarde ociosa.",
+          "O dilema clássico é ordem de chegada ou horário marcado. A fila na porta afasta o cliente que não tem tempo de esperar, e a agenda rígida não deixa espaço para quem passa na frente e quer cortar agora. Na Cygna, os dois convivem: o cliente marca pelo link e vê só os horários realmente livres de cada barbeiro, e a recepção enxerga as agendas lado a lado para encaixar quem chega sem marcar, sem sobrepor ninguém.",
+          "A outra metade do trabalho é o dinheiro. Comissão de barbeiro calculada no caderno, venda de pomada e de bebida no balcão e caixa fechado de cabeça geram discussão. Quando cada serviço registrado já calcula a parte do barbeiro e cada venda baixa o estoque, o fechamento do dia leva minutos.",
+        ],
+      },
+      {
+        tipo: "lista",
+        titulo: "Recursos da Cygna para barbearia",
+        intro: "O plano Studio atende barbearias de até cinco barbeiros. Casas maiores ou com mais de uma unidade usam o plano Premium.",
+        itens: [
+          {
+            titulo: "Agenda por barbeiro",
+            texto: "Cada barbeiro com seus serviços, durações e folgas. O cliente escolhe com quem quer cortar e só vê horários reais.",
+          },
+          {
+            titulo: "Encaixe sem fila na porta",
+            texto: "Todas as agendas lado a lado mostram onde cabe um corte agora. Quem chega sem marcar é encaixado sem bagunçar o horário de quem marcou.",
+          },
+          {
+            titulo: "Comissão calculada por serviço",
+            texto: "Percentual por serviço, por barbeiro ou pelos dois. Cada atendimento finalizado já registra a parte da casa e a de quem atendeu. Veja [como calcular comissão](/blog/como-calcular-comissao-no-salao-de-beleza).",
+          },
+          {
+            titulo: "Pacote mensal de cortes",
+            texto: "Venda o pacote de cortes do mês pelo link. O saldo de cada cliente aparece para a recepção e baixa sozinho a cada visita. Veja [como montar um clube de assinatura](/blog/clube-de-assinatura-na-barbearia).",
+          },
+          {
+            titulo: "Lembrete e retorno no WhatsApp",
+            texto: "Confirmação com um toque na véspera e lembrete de retorno quando chega a hora do próximo corte, com o link para escolher o horário.",
+          },
+          {
+            titulo: "Produtos e bar no mesmo caixa",
+            texto: "Pomada, óleo de barba, shampoo e bebidas entram no caixa junto com os serviços. O estoque baixa a cada venda e avisa antes de acabar.",
+          },
+        ],
+      },
+      {
+        tipo: "tabela",
+        titulo: "Intervalos de retorno mais comuns na barbearia",
+        intro: "Referências para configurar o lembrete de retorno. Ajuste conforme o estilo e o hábito de cada cliente.",
+        legenda: "Intervalo de retorno e duração média por serviço de barbearia",
+        colunas: ["Serviço", "Retorno sugerido", "Duração média"],
+        linhas: [
+          ["Corte degradê (fade)", "14 a 21 dias", "40 a 50 min"],
+          ["Corte social ou tesoura", "21 a 30 dias", "30 a 40 min"],
+          ["Barba completa", "7 a 15 dias", "20 a 30 min"],
+          ["Pezinho e acabamento", "7 a 10 dias", "10 a 15 min"],
+          ["Corte + barba", "14 a 21 dias", "50 a 70 min"],
+          ["Pigmentação ou luzes", "30 a 45 dias", "60 a 90 min"],
+        ],
+      },
+      {
+        tipo: "texto",
+        titulo: "Barbeiro parceiro: a Lei do Salão Parceiro também vale para barbearia",
+        paragrafos: [
+          "Barbeiro está entre os profissionais da Lei 12.592/2012, e por isso a parceria regulamentada pela Lei 13.352/2016 também se aplica às barbearias. No modelo de parceria, o barbeiro não é empregado: a barbearia recebe o valor do cliente, retém a cota-parte dela e repassa a do barbeiro, recolhendo os tributos dele, com contrato escrito e homologado.",
+          "Para o repasse ser conferível pelos dois lados, cada atendimento precisa registrar o valor, o barbeiro e o percentual acordado. Na Cygna, o relatório do período mostra exatamente isso. O guia sobre a [Lei do Salão Parceiro](/blog/lei-do-salao-parceiro-como-funciona) detalha as cláusulas obrigatórias do contrato.",
+        ],
+      },
+      {
+        tipo: "passos",
+        titulo: "Como colocar a barbearia na Cygna",
+        passos: [
+          { titulo: "Cadastre os barbeiros", texto: "Nome, foto, serviços de cada um, dias e horários de trabalho e percentual de comissão." },
+          { titulo: "Monte o cardápio", texto: "Corte, barba, combos e pacotes com preço e duração real, incluindo o tempo de lavagem e acabamento." },
+          { titulo: "Importe os clientes", texto: "A lista em planilha é importada pelo time de suporte, sem custo." },
+          { titulo: "Divulgue o link", texto: "Na bio do Instagram, no WhatsApp e em um QR Code no balcão. Os clientes passam a marcar sozinhos." },
+        ],
+      },
+    ],
+    plano: "studio",
+    planoMotivo:
+      "O plano Studio atende barbearias de até 5 barbeiros com comissões automáticas, pacotes com compra pelo link, sinal via Pix e relatórios por serviço e barbeiro. Acima disso ou com mais de uma unidade, o plano Premium libera profissionais ilimitados.",
+    faq: [
+      {
+        q: "Qual o melhor sistema para barbearia?",
+        a: "É o que mostra a agenda de cada barbeiro lado a lado, deixa o cliente marcar pelo link e calcula a comissão por serviço. A Cygna faz isso no plano Studio, por R$ 99,90 por mês para até 5 barbeiros, com lembrete no WhatsApp, pacotes e caixa do dia. Dá para testar 14 dias grátis.",
+      },
+      {
+        q: "Dá para atender com horário marcado e por ordem de chegada ao mesmo tempo?",
+        a: "Dá. Os clientes que marcam pelo link ocupam os horários deles, e a recepção vê na agenda de cada barbeiro onde cabe um encaixe para quem chega sem marcar. Muitas barbearias reservam alguns horários por dia para encaixe e deixam o resto aberto para agendamento.",
+      },
+      {
+        q: "O cliente consegue escolher o barbeiro na hora de agendar?",
+        a: "Consegue. No link, o cliente escolhe o serviço e o barbeiro, e o sistema só mostra os horários em que aquele barbeiro está trabalhando e livre, considerando a duração do serviço. Quem não tem preferência pode escolher o primeiro horário disponível.",
+      },
+      {
+        q: "Consigo vender pacote mensal de cortes pela Cygna?",
+        a: "Consegue. Você cria o pacote, por exemplo quatro cortes por mês, e o cliente compra pelo link de agendamento ou no balcão. O saldo fica na ficha dele e baixa a cada visita, e a recepção vê quantos cortes restam e quando o pacote vence.",
+      },
+      {
+        q: "A comissão de cada barbeiro é calculada automaticamente?",
+        a: "É. Você define o percentual por serviço, por barbeiro ou pelos dois. Cada atendimento finalizado registra o valor, o barbeiro e a parte de cada um, e o relatório do período mostra quanto cada barbeiro tem a receber, sem planilha paralela.",
+      },
+    ],
+    relacionados: [
+      { titulo: "Agendamento ou ordem de chegada na barbearia: qual escolher", href: "/blog/agendamento-ou-ordem-de-chegada-na-barbearia" },
+      { titulo: "Clube de assinatura na barbearia: como montar o plano mensal", href: "/blog/clube-de-assinatura-na-barbearia" },
+      { titulo: "Como montar uma barbearia do zero", href: "/blog/como-montar-uma-barbearia" },
+      { titulo: "Como atrair clientes para barbearia", href: "/blog/como-atrair-clientes-para-barbearia" },
+      { titulo: "Como calcular comissão de barbeiros e cabeleireiros", href: "/blog/como-calcular-comissao-no-salao-de-beleza" },
+      { titulo: "Lei do Salão Parceiro: parceria, cota-parte e contrato", href: "/blog/lei-do-salao-parceiro-como-funciona" },
+    ],
+    atualizado: "2026-10-08",
   },
 
   /* ═══════════════════════════════════════════════ LASH E NAIL DESIGNERS ══ */
@@ -438,6 +586,12 @@ export const SEGMENTOS: Segmento[] = [
     relacionados: [
       { titulo: "Agenda de manutenção de cílios e unhas em gel: como montar", href: "/blog/agenda-de-manutencao-de-cilios-e-unhas" },
       { titulo: "Sinal via Pix e lembrete: como diminuir faltas na agenda", href: "/blog/como-reduzir-faltas-de-clientes-no-salao" },
+      { titulo: "Como precificar serviços de cílios e unhas", href: "/blog/como-precificar-servicos-de-cilios-e-unhas" },
+      { titulo: "Link de agendamento no Instagram: como colocar e divulgar", href: "/blog/link-de-agendamento-no-instagram" },
+      { titulo: "Retoque de micropigmentação e design de sobrancelhas", href: "/blog/retoque-de-micropigmentacao-e-design-de-sobrancelhas" },
+      { titulo: "Como começar como lash designer", href: "/blog/como-comecar-como-lash-designer" },
+      { titulo: "Como começar como manicure e nail designer", href: "/blog/como-comecar-como-manicure-e-nail-designer" },
+      { titulo: "Como começar como designer de sobrancelhas", href: "/blog/como-comecar-como-designer-de-sobrancelhas" },
     ],
     atualizado: "2026-09-25",
   },
