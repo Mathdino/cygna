@@ -45,7 +45,28 @@ export function mapaGrupos() {
   ];
 }
 
+type Grupo = ReturnType<typeof mapaGrupos>[number];
+
+function GrupoCard({ grupo, className = "", listaClassName = "mt-4 flex flex-col gap-3", linkClassName = "text-[15px]" }: { grupo: Grupo; className?: string; listaClassName?: string; linkClassName?: string }) {
+  return (
+    <nav aria-label={grupo.titulo} className={`rounded-3xl border border-tinta/10 bg-white p-6 ${className}`}>
+      <h2 className="text-[13px] font-semibold uppercase tracking-wider text-iris">{grupo.titulo}</h2>
+      <ul className={listaClassName}>
+        {grupo.links.map((l) => (
+          <li key={l.href}>
+            <a href={l.href} className={`${linkClassName} leading-snug text-tinta/80 transition-colors hover:text-iris`}>
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 export function MapaDoSitePage() {
+  const grupos = mapaGrupos();
+  const blog = grupos.find((g) => g.titulo === "Blog");
   return (
     <PageShell path="/mapa-do-site">
       <PageHero
@@ -56,21 +77,13 @@ export function MapaDoSitePage() {
         acoes={false}
       />
       <section className="px-3 pt-4 sm:px-4">
-        <div className="mx-auto grid max-w-6xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {mapaGrupos().map((g) => (
-            <nav key={g.titulo} aria-label={g.titulo} className="rounded-3xl border border-tinta/10 bg-white p-6">
-              <h2 className="text-[13px] font-semibold uppercase tracking-wider text-iris">{g.titulo}</h2>
-              <ul className="mt-4 flex flex-col gap-3">
-                {g.links.map((l) => (
-                  <li key={l.href}>
-                    <a href={l.href} className="text-[15px] leading-snug text-tinta/80 transition-colors hover:text-iris">
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+        <div className="mx-auto grid max-w-6xl gap-3 md:grid-cols-3">
+          {grupos.filter((g) => g.titulo !== "Blog").map((g) => (
+            <GrupoCard key={g.titulo} grupo={g} />
           ))}
+          {/* Blog tem dezenas de links: ocupa a linha inteira e quebra em colunas
+              para o card não ficar comprido. */}
+          {blog && <GrupoCard grupo={blog} className="md:col-span-3" listaClassName="mt-4 gap-x-8 sm:columns-2 lg:columns-3 [&>li]:mb-2.5 [&>li]:break-inside-avoid" linkClassName="text-[14px]" />}
         </div>
       </section>
       <div className="h-16" />

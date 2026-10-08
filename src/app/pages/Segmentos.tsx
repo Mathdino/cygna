@@ -165,6 +165,7 @@ export function SegmentosHub() {
 
       <Relacionados
         titulo="Conteúdos por segmento"
+        colunas={4}
         itens={SEGMENTOS.flatMap((s) => s.relacionados.slice(0, 1)).map((r) => {
           const post = getPost(r.href.replace("/blog/", ""));
           return { titulo: post?.titulo ?? r.titulo, href: post ? postPath(post) : r.href, texto: post?.metaDescription, selo: post ? `Blog · ${post.categoria}` : "Blog" };
