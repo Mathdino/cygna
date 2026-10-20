@@ -30,7 +30,7 @@ export const SITE = {
     email: "contato@cygna.com.br",
     /** Só dígitos, com DDI e DDD (ex.: 5511999999999). Descomente e preencha para ligar o
         WhatsApp no rodapé, no contato (card + envio do formulário), no schema e no llms.txt. */
-    whatsapp: "5511910064302",
+    whatsapp: "5511958466313",
   } as Contato,
 
   /* Redes sociais — aparecem no rodapé, na página de contato e no schema (sameAs).
