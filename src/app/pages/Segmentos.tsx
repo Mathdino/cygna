@@ -47,7 +47,9 @@ export function SegmentoPage({ seg }: { seg: Segmento }) {
               <span className="font-display text-[52px] font-semibold leading-none tracking-tight">{brl(plano.mensal)}</span>
               <span className="text-[15px] text-tinta/60">/mês</span>
             </p>
-            <p className="mt-1 text-[13px] text-tinta/60">ou R$ {brl(plano.anual)}/ano no plano anual (2 meses grátis)</p>
+            <p className="mt-1 text-[13px] text-tinta/60">
+              ou R$ {brl(plano.semestral)} a cada 6 meses (10% off) · R$ {brl(plano.anual)}/ano no plano anual (2 meses grátis)
+            </p>
             <p className="mt-4 flex items-start gap-2 text-[14px] text-tinta/75">
               <Check className="mt-0.5 h-4 w-4 shrink-0 text-iris" aria-hidden="true" />
               {plano.resumo}
@@ -90,7 +92,7 @@ export const HUB_SEGMENTOS = {
   faq: [
     {
       q: "Qual plano da Cygna escolher para o meu negócio?",
-      a: "Depende do tamanho da equipe e dos recursos. Quem atende sozinha começa no Solo, por R$ 39,90 por mês. Equipes de até 5 profissionais usam o Studio, por R$ 99,90. Clínicas com prontuário, salas, estoque ou equipe grande usam o Premium, por R$ 219,90. No plano anual, 2 meses saem grátis. Todos têm 14 dias grátis.",
+      a: "Depende do tamanho da equipe e dos recursos. Quem atende sozinha começa no Solo, por R$ 39,90 por mês. Equipes de até 5 profissionais usam o Studio, por R$ 99,90. Clínicas com prontuário, salas, estoque ou equipe grande usam o Premium, por R$ 219,90. No plano semestral há 10% de desconto e, no anual, 2 meses saem grátis. Todos têm 14 dias grátis.",
     },
     {
       q: "Posso mudar de plano depois de começar?",

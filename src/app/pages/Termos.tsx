@@ -82,7 +82,7 @@ export function TermosPage() {
               <H>1.3 Teste grátis, planos e pagamento</H>
               <p>
                 Todo plano pode ser testado por {TESTE_GRATIS_DIAS} dias sem cartão de crédito. Ao fim do teste, o uso continua mediante a
-                contratação de um plano, com cobrança mensal ou anual conforme a opção escolhida. Alterações de preço são comunicadas com
+                contratação de um plano, com cobrança mensal, semestral ou anual conforme a opção escolhida. Alterações de preço são comunicadas com
                 antecedência e valem a partir do ciclo seguinte.
               </p>
               <H>1.4 Cancelamento</H>

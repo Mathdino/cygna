@@ -3,13 +3,23 @@ import { Check, ChevronRight } from "lucide-react";
 import { gsap, Flip, useGSAP, MOTION, prefersReducedMotion } from "../lib/gsap";
 import StrokeTitle from "../components/StrokeTitle";
 import GradientText from "../components/GradientText";
-import { CADASTRO_URL, PLANOS, anualPorMes, brl, type PlanoId } from "../site/config";
+import { CADASTRO_URL, PLANOS, anualPorMes, brl, semestralPorMes, type PlanoId } from "../site/config";
+
+type Ciclo = "mensal" | "semestral" | "anual";
+
+const CICLOS: { value: Ciclo; label: string; extra?: string; extraCurto?: string }[] = [
+  { value: "mensal", label: "Mensal" },
+  { value: "semestral", label: "Semestral", extra: "10% off", extraCurto: "-10%" },
+  { value: "anual", label: "Anual", extra: "2 meses grátis", extraCurto: "-17%" },
+];
 
 type Plan = {
   name: string;
   tagline: string;
   /** Preço por mês (R$). */
   monthly: number;
+  /** Valor total do plano semestral (R$) — ~10% de desconto. */
+  semiannual: number;
   /** Valor total do plano anual (R$) — 2 meses grátis. */
   annual: number;
   features: string[];
@@ -18,8 +28,15 @@ type Plan = {
 
 const price = (id: PlanoId) => {
   const p = PLANOS.find((x) => x.id === id)!;
-  return { monthly: p.mensal, annual: p.anual };
+  return { monthly: p.mensal, semiannual: p.semestral, annual: p.anual };
 };
+
+/** Preço por mês exibido no card para o ciclo escolhido. */
+const porMes = (p: Plan, ciclo: Ciclo) =>
+  ciclo === "anual" ? anualPorMes(p.annual) : ciclo === "semestral" ? semestralPorMes(p.semiannual) : p.monthly;
+
+/** Ordem dos ciclos (para o sentido da animação do preço). */
+const ordem = (c: Ciclo) => CICLOS.findIndex((x) => x.value === c);
 
 const PLANS: Plan[] = [
   {
@@ -66,7 +83,8 @@ const PLANS: Plan[] = [
 
 export default function Pricing() {
   const root = useRef<HTMLElement>(null);
-  const [annual, setAnnual] = useState(false);
+  const [ciclo, setCiclo] = useState<Ciclo>("mensal");
+  const cicloAnterior = useRef<Ciclo>("mensal");
   const pillState = useRef<Flip.FlipState | null>(null);
   const shown = useRef<number[]>(PLANS.map((p) => p.monthly));
 
@@ -117,7 +135,7 @@ export default function Pricing() {
       pillState.current = null;
 
       gsap.utils.toArray<HTMLElement>(".price").forEach((el, i) => {
-        const target = annual ? anualPorMes(PLANS[i].annual) : PLANS[i].monthly;
+        const target = porMes(PLANS[i], ciclo);
         const state = { v: shown.current[i] };
         const write = () => {
           el.textContent = brl(state.v);
@@ -127,18 +145,20 @@ export default function Pricing() {
           write();
         } else {
           gsap.to(state, { v: target, duration: 0.6, ease: "power2.out", onUpdate: write });
-          gsap.fromTo(el, { yPercent: annual ? -20 : 20 }, { yPercent: 0, duration: 0.5, ease: "back.out(2)" });
+          const desce = ordem(ciclo) > ordem(cicloAnterior.current);
+          gsap.fromTo(el, { yPercent: desce ? -20 : 20 }, { yPercent: 0, duration: 0.5, ease: "back.out(2)" });
         }
         shown.current[i] = target;
       });
+      cicloAnterior.current = ciclo;
     },
-    { scope: root, dependencies: [annual] }
+    { scope: root, dependencies: [ciclo] }
   );
 
-  const choose = (value: boolean) => {
-    if (value === annual) return;
+  const choose = (value: Ciclo) => {
+    if (value === ciclo) return;
     pillState.current = Flip.getState(".toggle-pill");
-    setAnnual(value);
+    setCiclo(value);
   };
 
   return (
@@ -156,24 +176,24 @@ export default function Pricing() {
           <p className="mt-4 text-[16px] text-tinta/70">14 dias grátis em qualquer plano. Sem cartão, sem fidelidade.</p>
 
           <div className="mt-8 inline-flex rounded-full bg-white p-1 shadow-sm" role="group" aria-label="Período de cobrança">
-            {[
-              { value: false, label: "Mensal" },
-              { value: true, label: "Anual", extra: "2 meses grátis" },
-            ].map((opt) => {
-              const active = annual === opt.value;
+            {CICLOS.map((opt) => {
+              const active = ciclo === opt.value;
               return (
                 <button
                   key={opt.label}
                   type="button"
                   aria-pressed={active}
                   onClick={() => choose(opt.value)}
-                  className={`relative rounded-full px-6 py-2.5 text-[14px] transition-colors ${active ? "text-white" : "text-tinta/80"}`}
+                  className={`relative rounded-full px-3 py-2.5 text-[13px] transition-colors sm:px-6 sm:text-[14px] ${active ? "text-white" : "text-tinta/80"}`}
                 >
                   {active && <span data-flip-id="pill" className="toggle-pill absolute inset-0 rounded-full bg-tinta" />}
-                  <span className="relative flex items-center gap-2">
+                  <span className="relative flex items-center gap-1.5 sm:gap-2">
                     {opt.label}
                     {opt.extra && (
-                      <span className="rounded-full bg-purple-400 px-2 py-0.5 text-[11px] font-semibold text-tinta">{opt.extra}</span>
+                      <span className="rounded-full bg-purple-400 px-1.5 py-0.5 text-[11px] font-semibold text-tinta sm:px-2">
+                        <span className="sm:hidden">{opt.extraCurto}</span>
+                        <span className="hidden sm:inline">{opt.extra}</span>
+                      </span>
                     )}
                   </span>
                 </button>
@@ -203,7 +223,11 @@ export default function Pricing() {
                 <span className={`text-[14px] ${p.featured ? "text-white/60" : "text-tinta/60"}`}>/mês</span>
               </div>
               <p className={`mt-1 h-5 text-[12px] ${p.featured ? "text-white/60" : "text-tinta/60"}`}>
-                {annual ? `R$ ${brl(p.annual)} cobrado por ano` : "cobrado mensalmente"}
+                {ciclo === "anual"
+                  ? `R$ ${brl(p.annual)} cobrado por ano`
+                  : ciclo === "semestral"
+                    ? `R$ ${brl(p.semiannual)} cobrado a cada 6 meses`
+                    : "cobrado mensalmente"}
               </p>
               <ul className="mt-6 flex flex-1 flex-col gap-3">
                 {p.features.map((f) => (

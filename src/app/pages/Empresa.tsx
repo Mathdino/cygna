@@ -25,7 +25,7 @@ export const EMPRESA = {
     },
     {
       q: "Quanto custa usar a Cygna?",
-      a: `Há três planos mensais: Solo, por R$ ${brl(PLANOS[0].mensal)}; Studio, por R$ ${brl(PLANOS[1].mensal)}; e Premium, por R$ ${brl(PLANOS[2].mensal)}. No plano anual você ganha 2 meses grátis e paga R$ ${brl(PLANOS[0].anual)}, R$ ${brl(PLANOS[1].anual)} e R$ ${brl(PLANOS[2].anual)} por ano. Todos têm ${TESTE_GRATIS_DIAS} dias grátis, sem cartão e sem fidelidade.`,
+      a: `Há três planos mensais: Solo, por R$ ${brl(PLANOS[0].mensal)}; Studio, por R$ ${brl(PLANOS[1].mensal)}; e Premium, por R$ ${brl(PLANOS[2].mensal)}. No plano semestral há 10% de desconto e você paga R$ ${brl(PLANOS[0].semestral)}, R$ ${brl(PLANOS[1].semestral)} e R$ ${brl(PLANOS[2].semestral)} a cada 6 meses. No plano anual você ganha 2 meses grátis e paga R$ ${brl(PLANOS[0].anual)}, R$ ${brl(PLANOS[1].anual)} e R$ ${brl(PLANOS[2].anual)} por ano. Todos têm ${TESTE_GRATIS_DIAS} dias grátis, sem cartão e sem fidelidade.`,
     },
     {
       q: "De quem são os dados das minhas clientes?",

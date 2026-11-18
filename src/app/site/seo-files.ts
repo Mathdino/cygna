@@ -63,7 +63,7 @@ export function llmsTxt(): string {
     return itens.length ? [`## ${s}`, ...itens.map((r) => `- [${r.llms.titulo}](${urlDe(r.path)}): ${r.llms.descricao}`), ""] : [];
   }),
   "## Informações técnicas",
-  "- Planos mensais: Solo R$ 39,90 (1 profissional), Studio R$ 99,90 (até 5 profissionais) e Premium R$ 219,90 (profissionais ilimitados). No plano anual, com 2 meses grátis: R$ 399,90, R$ 990,90 e R$ 2.190,90 por ano.",
+  "- Planos mensais: Solo R$ 39,90 (1 profissional), Studio R$ 99,90 (até 5 profissionais) e Premium R$ 219,90 (profissionais ilimitados). No plano semestral, com 10% de desconto: R$ 214,90, R$ 539,90 e R$ 1.187,90 a cada 6 meses. No plano anual, com 2 meses grátis: R$ 399,90, R$ 990,90 e R$ 2.190,90 por ano.",
   "- 14 dias de teste grátis em qualquer plano, sem cartão de crédito e sem fidelidade; cancelamento pelo próprio painel.",
   "- Funciona no navegador do celular, tablet ou computador; a cliente agenda por link, sem baixar aplicativo.",
   "- Lembrete por WhatsApp um dia antes do horário, com botões para confirmar ou remarcar.",

@@ -83,13 +83,16 @@ export type SiteConfig = typeof SITE;
 
 /**
  * Planos exibidos na home (seção Planos). Mesmo valor em todo lugar que cita preço.
- * mensal = preço por mês; anual = valor total cobrado por ano (plano anual = 2 meses grátis).
+ * mensal = preço por mês; semestral = valor total cobrado a cada 6 meses (~10% de desconto);
+ * anual = valor total cobrado por ano (plano anual = 2 meses grátis).
+ * Mesmos valores de src/lib/plans.ts no cygna-system — mudou lá, muda aqui.
  */
 export const PLANOS = [
   {
     id: "autonoma",
     nome: "Solo",
     mensal: 39.9,
+    semestral: 214.9,
     anual: 399.9,
     resumo: "1 profissional, agenda online com link na bio, lembretes no WhatsApp com mensagem pronta, ficha de clientes, lista de espera, vendas e financeiro básico.",
   },
@@ -97,6 +100,7 @@ export const PLANOS = [
     id: "studio",
     nome: "Studio",
     mensal: 99.9,
+    semestral: 539.9,
     anual: 990.9,
     resumo: "Até 5 profissionais, comissões automáticas, pacotes de sessões com compra pelo link, relatórios por serviço e profissional e equipe com cargos e logins próprios.",
   },
@@ -104,6 +108,7 @@ export const PLANOS = [
     id: "clinica",
     nome: "Premium",
     mensal: 219.9,
+    semestral: 1187.9,
     anual: 2190.9,
     resumo: "Profissionais ilimitados, prontuário com anamnese, fotos de evolução e termos, estoque com lotes e validade, salas e equipamentos e acesso restrito por cargo.",
   },
@@ -114,6 +119,9 @@ export const brl = (v: number) => v.toLocaleString("pt-BR", { minimumFractionDig
 
 /** Quanto o plano anual sai por mês (arredondado ao centavo): 399,90/ano → 33,33. */
 export const anualPorMes = (anual: number) => Math.round(Math.round(anual * 100) / 12) / 100;
+
+/** Quanto o plano semestral sai por mês (arredondado ao centavo): 214,90/semestre → 35,82. */
+export const semestralPorMes = (semestral: number) => Math.round(Math.round(semestral * 100) / 6) / 100;
 
 export type PlanoId = (typeof PLANOS)[number]["id"];
 
